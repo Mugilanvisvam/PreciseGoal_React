@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #e2edf3;
+  }
+  
+  .logo {
+    height: auto; 
+  }
+  
+  .hero {
+    background-image: url('https://s3-alpha-sig.figma.com/img/97ec/22b8/fe93e2614ea076d205f88d4abc7f6554?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=KwwnJo9wp59HOBCBi9hDNWGm-Qrs7MaBpmDav~wkNDQHDFXGdmL9cA7pLwyfpjbLwKyUQOWPbIck1cviQZXy82SrF48azG9ymiY5VB-79JbUjeE7JLgjiKCfStwjSzABk0EmdcRf~WYmbLwPzB37EUWaW9UGYVqCGdgsCsREiU-PaDCz8kxU~1BYtywH9Qh8dLOd5eq7bDqh2mkHtoJKDphWWGxyAz4lqATmtRxQfQn4woBGZn5pHjKWRdxblKYrJFNbQQb0SlpXLDxmr~VczVG6KSwcZoJeSSrfwSkSu3E7i3DDlF1tceBVBJndiE6LvpDQWLGzYo3MiSi1cxgw2Q__');
+    background-size: cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+  }
+  
+  .hero-btn {
+    background-color: #ffb100; 
+    color: #fff; 
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+  }
+    .hero-btn {
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+  
+  .hero h1 {
+  color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+  .hero h1 {
+      font-size: 2rem;
+  }
+  } 
+  .how-it-works {
+    text-align: justify;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .step {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .step-id {
+    width: 50px;
+    height: 30px;
+    margin-right: 20px;
+  }
+  
+  .content {
+    margin-top: 20px;
+  }
+  
+  .video-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    background-color: #ffb100;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-btn:hover {
+    background-color: #e5a800; }
+  
+  
+    .menu a[href="#All"] {
+      color: orange;
+    }
+    
+  .menu a:hover {
+    color: orange;
+  }  
+  
+  .gallery {
+    padding: 20px; 
+    text-align: center; 
+  }
+  
+  .gallery h3 {
+    margin-bottom: 20px;
+    font-size: 2rem; 
+  }
+  
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  /* .footer-logo {
+  width: 50px;
+  height: auto;
+  }
+  
+  .brand-name {
+  font-weight: bold;
+  }
+  
+  .footer h5 {
+  margin-bottom: 1rem;
+  }
+  
+  .footer ul {
+  padding-left: 0;
+  }
+  
+  .footer ul li {
+  margin-bottom: 0.5rem;
+  }
+  
+  .footer a {
+  color: #fff;
+  text-decoration: none;
+  }
+  
+  .footer a:hover {
+  text-decoration: underline;
+  }
+  
+  @media (max-width: 767px) {
+  .footer .brand {
+    text-align: center;
+  }
+  }   */
+  footer a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #0d6efd; /* Bootstrap primary color */
+  }
+  
