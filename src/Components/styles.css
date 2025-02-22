@@ -75,3 +75,43 @@ footer a {
 footer a:hover {
   color: #0d6efd;
 }
+/* Contact Section Styling */
+.contact-section {
+  background: #0f8b8b;
+  color: #fff;
+  /* border-radius: 10px; */
+  padding: 50px 20px;
+}
+
+/* Contact Card */
+.contact-card {
+  background: #222;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px; /* Ensure even width */
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Hover Effect */
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background: #000 !important; /* Hover color */
+}
+
+/* Contact Icon Styling */
+.contact-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #fff; /* Default icon color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-card {
+    max-width: 100%;
+  }
+}

@@ -5,11 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("home"); // Default active tab: Home
+  const [activeTab, setActiveTab] = useState("home");
+  const [isProductMenuOpen, setIsProductMenuOpen] = useState(false); // Track dropdown open state
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-    setIsMenuOpen(false); // Close the menu after selection (for mobile view)
+    setIsMenuOpen(false);
+    setIsProductMenuOpen(false); // Close dropdown on tab selection
   };
 
   return (
@@ -65,11 +67,14 @@ const Header = () => {
                 className={`nav-link dropdown-toggle ${activeTab === "products" ? "active text-primary fw-bold" : ""}`}
                 href="#products"
                 role="button"
-                onClick={() => handleTabClick("products")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsProductMenuOpen(!isProductMenuOpen); // Toggle dropdown
+                }}
               >
                 Products
               </a>
-              {showDropdown && (
+              {(showDropdown || isProductMenuOpen) && (
                 <ul className="dropdown-menu show">
                   <li>
                     <a className="dropdown-item" href="#mutualfund" onClick={() => handleTabClick("products")}>
