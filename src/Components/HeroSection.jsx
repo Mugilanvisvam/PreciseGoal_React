@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import sectionVideo from "../assets/section.mp4"; // Import the video
+import "../Components/styles.css";
 
 const HeroSection = () => {
   return (
@@ -32,8 +33,8 @@ const HeroSection = () => {
               manage them with our expertise. Our goal is to keep you updated on where 
               your money is invested.
             </p>
-            <button className="btn hero-btn px-4 py-2 text-white" style={{ backgroundColor: "#1362a2",
-                borderColor: "#1362a2"}}>Explore Now</button>
+            <button className="btn hero-btn px-4 py-2 text-white" style={{ backgroundColor: "limegreen",
+                borderColor: "limegreen"}}>Explore Now</button>
           </div>
         </div>
       </div>

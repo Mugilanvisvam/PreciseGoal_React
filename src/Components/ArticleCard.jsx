@@ -4,6 +4,7 @@ import Mutualfund from "../assets/mutualfund.jpg";
 import Insurance from "../assets/insurance.jpg";
 import Loan from "../assets/loans.jpg";
 import StructuredProduct from "../assets/structuredProduct.jpg";
+import "../Components/styles.css";
 
 const articles = [
   {
@@ -39,7 +40,7 @@ const articles = [
 const ArticleCard = () => {
   return (
     <div className="container mt-5">
-      <h3 className="text-center text-primary fw-bold">Our Products</h3>
+      <h3 className="text-center fw-bold" style={{color:'limegreen'}}>Our Products</h3>
       <p className="text-center mb-4 text-dark">
         All our product offerings are customer-centric to meet our client’s
         specific needs. Our products include:
@@ -64,7 +65,7 @@ const ArticleCard = () => {
               <div className="card-body d-flex flex-column">
                 <h6 className="fw-bold text-dark">{article.title}</h6>
                 <p className="text-muted small flex-grow-1">{article.description}</p>
-                <a href="#" className="fw-bold text-primary mt-auto">
+                <a href="#" className="fw-bold mt-auto"  style={{color:'limegreen'}}>
                   Read More...
                 </a>
               </div>

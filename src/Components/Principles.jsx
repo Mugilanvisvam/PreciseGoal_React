@@ -5,7 +5,7 @@ import offerImage from "../assets/principles.png";
 
 const Principles = () => {
   return (
-    <section className="featured-event py-5" style={{ backgroundColor: "#f0f8ff" }}>
+    <section className="featured-event py-5" style={{ backgroundColor: "#fff" }}>
       <div className="container">
         <div className="row align-items-center">
           {/* Text Content */}

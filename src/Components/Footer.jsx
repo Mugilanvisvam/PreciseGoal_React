@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../Components/styles.css'; 
 import Appstore from '../assets/pngegg.png';
-import Logo from '../assets/Precise-goal-logo.png';
+import Logo from '../assets/logo.png';
 
 // Social Media Icons
 import FacebookIcon from '../assets/facebook.png';
@@ -12,16 +12,19 @@ import LinkedinIcon from '../assets/linkedin.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light py-4">
+    <footer className="bg-white text-dark py-4">
       <div className="container">
         <div className="row text-center text-md-start">
           {/* Left: Logo & Social Links */}
-          <div className="col-12 col-md-3 mb-4">
-            <img src={Logo} alt="Logo" className="mb-2 img-fluid" width="200" />
+          <div className="col-12 col-md-3 mb-4 d-flex flex-column align-items-center align-items-md-start">
+            <div className="d-flex align-items-center mb-2">
+              <img src={Logo} alt="Logo" className="img-fluid" width="100" />
+              <h5 className="mb-0">Precise Goal</h5>
+            </div>
             <p>Connect with us:</p>
             <div className="d-flex justify-content-center justify-content-md-start gap-3">
               {[FacebookIcon, InstagramIcon, TwitterIcon, LinkedinIcon].map((icon, index) => (
-                <a key={index} href="#" className="text-light">
+                <a key={index} href="#" className="text-dark">
                   <img src={icon} alt="Social" width="25" height="25" />
                 </a>
               ))}
@@ -33,7 +36,7 @@ const Footer = () => {
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
               {["About Us", "Smart Portfolio", "SIP Calculator", "Register", "Contact Us"].map((link, index) => (
-                <li key={index}><a href="#" className="text-light">{link}</a></li>
+                <li key={index}><a href="#" className="text-dark">{link}</a></li>
               ))}
             </ul>
           </div>
@@ -43,7 +46,7 @@ const Footer = () => {
             <h5>Useful Links</h5>
             <ul className="list-unstyled">
               {["Products", "Disclaimer", "Sitemap", "Privacy Policy", "Terms & Conditions"].map((link, index) => (
-                <li key={index}><a href="#" className="text-light">{link}</a></li>
+                <li key={index}><a href="#" className="text-dark">{link}</a></li>
               ))}
             </ul>
           </div>
