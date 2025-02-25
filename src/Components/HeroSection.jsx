@@ -33,8 +33,8 @@ const HeroSection = () => {
               manage them with our expertise. Our goal is to keep you updated on where 
               your money is invested.
             </p>
-            <button className="btn hero-btn px-4 py-2 text-white" style={{ backgroundColor: "limegreen",
-                borderColor: "limegreen"}}>Explore Now</button>
+            <button className="btn hero-btn px-4 py-2 text-white" style={{ backgroundColor: "#57C675",
+                borderColor: "#57C675"}}>Explore Now</button>
           </div>
         </div>
       </div>

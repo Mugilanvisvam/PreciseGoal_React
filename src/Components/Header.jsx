@@ -86,7 +86,7 @@ const Header = () => {
           {/* Right - Buttons */}
           <div className="d-flex">
             <button className="btn btn-dark me-2 btn-sm">Login</button>
-            <button className="btn btn-warning btn-sm" style={{ backgroundColor: "limegreen", borderColor: "limegreen", color: "#fff" }}>Register</button>
+            <button className="btn btn-warning btn-sm" style={{ backgroundColor: "#57C675", borderColor: "#57C675", color: "#fff" }}>Register</button>
           </div>
         </div>
       </div>

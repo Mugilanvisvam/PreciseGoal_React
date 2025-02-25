@@ -12,7 +12,7 @@ const HowItWorks = () => {
   return (
     <section className="how-it-works py-5">
       <div className="container">
-        <h3 className="text-center" style={{ color: 'limegreen', fontWeight: 'bold' }}>HOW IT WORKS</h3>
+        <h3 className="text-center" style={{ color: '#57C675', fontWeight: 'bold' }}>HOW IT WORKS</h3>
         <p className="text-center mb-4 text-black">
           Investing can be tedious when not done correctly. The chances of failing to beat uncertainties are always there. 
           <br />We have experts, technology, and portfolios to guide you in the right direction.
@@ -22,7 +22,7 @@ const HowItWorks = () => {
         <div className="row justify-content-center">
           {steps.map((step) => (
             <div key={step.id} className="col-md-4 col-sm-12 mb-4 d-flex justify-content-center">
-              <div className="step p-4 text-white rounded shadow" style={{ backgroundColor: 'limegreen', width: '100%', maxWidth: '350px' }}>
+              <div className="step p-4 text-white rounded shadow" style={{ backgroundColor: '#57C675', width: '100%', maxWidth: '350px' }}>
                 <div className="step-id bg-white text-dark rounded-circle d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
                   {`0${step.id}`}
                 </div>
