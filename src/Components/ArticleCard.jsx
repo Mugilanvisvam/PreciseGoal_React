@@ -39,7 +39,7 @@ const articles = [
 
 const ArticleCard = () => {
   return (
-    <div className="container mt-5">
+    <div className="container">
       <h3 className="text-center fw-bold" style={{color:'#57C675'}}>Our Products</h3>
       <p className="text-center mb-4 text-dark">
         All our product offerings are customer-centric to meet our client’s

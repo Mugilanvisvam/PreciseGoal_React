@@ -40,7 +40,11 @@ p {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2rem;
+  color: #fff;
+}
+.hero p{
+  font-size: 1rem;
   color: #fff;
 }
 
@@ -136,5 +140,27 @@ footer a:hover {
 @media (max-width: 768px) {
   .contact-card {
     max-width: 100%;
+  }
+}
+.carousel {
+  max-width: 800px; /* Set max width */
+  width: 100%;
+  margin: auto;
+}
+
+.carousel-image {
+  height: 400px; /* Fixed height */
+  object-fit: cover; /* Ensures images scale properly */
+}
+
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 250px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-image {
+    height: 200px; /* Further reduce height for mobile */
   }
 }

@@ -5,6 +5,7 @@ import HeroSection from './Components/HeroSection';
 import HowItWorks from './Components/HowItWorks';
 import Principles from './Components/Principles'
 import ArticleCard from './Components/ArticleCard';
+import CarouselComponent from './Components/Carousel';
 import ContactSection from './Components/ContactSection';
 import Footer from './Components/Footer';
 
@@ -17,6 +18,7 @@ function App() {
       <Principles />
       <HowItWorks />
       <ArticleCard />
+      <CarouselComponent/>
       <ContactSection/>
       <Footer />
     </div>

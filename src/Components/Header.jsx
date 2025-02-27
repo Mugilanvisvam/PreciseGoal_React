@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/taglogo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Components/styles.css";
 
@@ -38,11 +38,15 @@ const Header = () => {
       <div className="container d-flex align-items-center justify-content-between">
         {/* Logo and Precise Goal Name */}
         <div className="d-flex align-items-center">
-          <a className="navbar-brand d-flex align-items-center" href="/">
-            <img src={logo} alt="Precise Logo" style={{ width: "60px", height: "auto", marginRight: "10px" }} />
-            <span className="fw-bold text-dark">Precise Goal</span>
-          </a>
-        </div>
+  <a className="navbar-brand d-flex align-items-center" href="/">
+    <img src={logo} alt="Precise Logo" style={{ width: "60px", height: "auto", marginRight: "10px" }} />
+    <div className="d-flex flex-column" style={{ lineHeight: "1"}}>
+      <span className="fw-bold" style={{ color: "#1E2050", fontSize: "x-large" }}>PG ASSET</span>
+      <span style={{ color: "#3A858B", fontSize: "x-small" }}>Invest Precisely. Retire Wisely.</span>
+    </div>
+  </a>
+</div>
+
 
         {/* Mobile Menu Toggle */}
         <button className="navbar-toggler" type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>

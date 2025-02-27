@@ -23,11 +23,14 @@ const HowItWorks = () => {
           {steps.map((step) => (
             <div key={step.id} className="col-md-4 col-sm-12 mb-4 d-flex justify-content-center">
               <div className="step p-4 text-white rounded shadow" style={{ backgroundColor: '#57C675', width: '100%', maxWidth: '350px' }}>
-                <div className="step-id bg-white text-dark rounded-circle d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
-                  {`0${step.id}`}
+                <div className="d-flex align-items-center">
+                  <div className="step-id bg-white text-dark rounded-circle d-flex align-items-center justify-content-center" 
+                       style={{ width: '40px', height: '40px', fontWeight: 'bold', marginRight: '10px' }}>
+                    {`0${step.id}`}
+                  </div>
+                  <h4 className="m-0" style={{fontSize:'larger'}}>{step.title}</h4>
                 </div>
                 <div className="step-content mt-3">
-                  <h4>{step.title}</h4>
                   <p>{step.description}</p>
                 </div>
               </div>
