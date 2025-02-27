@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/MFcover.jpg"; // Import the image
+import logo from "../assets/covertop.jpg"; // Import the image
 import "../Components/styles.css";
 
 const HeroSection = () => {
