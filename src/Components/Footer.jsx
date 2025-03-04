@@ -12,7 +12,7 @@ import LinkedinIcon from '../assets/linkedin.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-dark py-4">
+    <footer className="bg-white text-dark py-4" style={{ borderTop: "3px solid #1E2050" }}>
       <div className="container">
         <div className="row text-center text-md-start">
           {/* Left: Logo & Social Links */}

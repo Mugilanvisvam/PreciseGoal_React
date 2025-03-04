@@ -1,27 +1,29 @@
 import React from 'react';
-import TopBar from './Components/TopBar'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import TopBar from './Components/TopBar';
 import Header from './Components/Header';
-import HeroSection from './Components/HeroSection';
-import HowItWorks from './Components/HowItWorks';
-import Principles from './Components/Principles'
-import ArticleCard from './Components/ArticleCard';
-import CarouselComponent from './Components/Carousel';
-import ContactSection from './Components/ContactSection';
 import Footer from './Components/Footer';
-
+import Home from './Pages/Home';
+import About from './Pages/About'; 
+import Contact from './Pages/Contact';
+import Services from './Pages/Services';
+import MutualFund from './Components/Products/MutualFund';
 function App() {
   return (
-    <div className="App">
-      <TopBar />
-      <Header />
-      <HeroSection />
-      <Principles />
-      <HowItWorks />
-      <ArticleCard />
-      <CarouselComponent/>
-      <ContactSection/>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <TopBar />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/service" element={<Services />} />
+          <Route path="/mutualfund" element={<MutualFund />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

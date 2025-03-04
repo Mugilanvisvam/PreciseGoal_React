@@ -27,6 +27,12 @@ p {
   text-transform: uppercase;
 }
 
+.dropdown-item:hover {
+  background-color: #57C675 !important;
+  color: white !important;
+}
+
+
 /* Hero Section */
 .hero {
   background-image: url('https://s3-alpha-sig.figma.com/img/97ec/22b8/fe93e2614ea076d205f88d4abc7f6554');

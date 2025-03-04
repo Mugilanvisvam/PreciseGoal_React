@@ -1,0 +1,42 @@
+.about-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px 20px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #57C675;
+  }
+  
+  .section-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .architect-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .architect-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .architect-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #343a40;
+  }
+  
+  .architect-role {
+    font-size: 16px;
+    color: #6c757d;
+  }
+  
+  .architect-text {
+    font-size: 14px;
+    color: #555;
+  }
+  
