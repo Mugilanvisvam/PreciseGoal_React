@@ -40,12 +40,12 @@ const MutualFundsAnimated = () => {
     }
   }, [visibleIndex]);
 
-  // Auto scroll to the latest message
-  useEffect(() => {
-    if (chatEndRef.current) {
-      chatEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [visibleIndex]);
+  // // Auto scroll to the latest message
+  // useEffect(() => {
+  //   if (chatEndRef.current) {
+  //     chatEndRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [visibleIndex]);
 
   return (
     <div className="comic-container">
