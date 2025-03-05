@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState("");
   const [showToolsDropdown, setShowToolsDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("home");
@@ -72,34 +73,68 @@ const Header = () => {
             <li className="nav-item">
               <Link
                 to='/'
-                className={`nav-link  ${location.pathname === "home" ? "active text-dark fw-bold" : ""}`}>Home
+                className={`nav-link  ${location.pathname === "/" ? "active text-dark fw-bold" : ""}`}
+                >Home
               </Link>
             </li>
 
             {/* Products Dropdown */}
-            <li
-              className="nav-item dropdown"
-              ref={dropdownRef}
-              onMouseEnter={() => setShowDropdown(true)}
-              onMouseLeave={() => setShowDropdown(false)}
-            >
-              <a
-                className={`nav-link dropdown-toggle ${activeTab === "products" ? "active text-dark fw-bold" : ""}`}
-                href="#products"
-                role="button"
-                onClick={(e) => toggleDropdown(e, "products")}
-              >
-                Products
-              </a>
-              {showDropdown && (
-                <ul className="dropdown-menu show">
-                  <li><Link to='mutualfund' className="dropdown-item" >Mutual Fund</Link></li>
-                  <li><a className="dropdown-item" href="#insurance" onClick={() => handleTabClick("products")}>Insurance</a></li>
-                  <li><a className="dropdown-item" href="#loan" onClick={() => handleTabClick("products")}>Loan</a></li>
-                  <li><a className="dropdown-item" href="#structuredproducts" onClick={() => handleTabClick("products")}>Structured Products</a></li>
-                </ul>
-              )}
-            </li>
+            <li className="nav-item dropdown"
+    ref={dropdownRef}
+    onMouseEnter={() => setShowDropdown(true)}
+    onMouseLeave={() => setShowDropdown(false)}
+>
+  <a
+    className={`nav-link dropdown-toggle ${activeTab === "products" ? "active text-dark fw-bold" : ""}`}
+    href="#products"
+    role="button"
+    onClick={(e) => toggleDropdown(e, "products")}
+  >
+    Products
+  </a>
+
+  {showDropdown && (
+    <ul className="dropdown-menu show">
+      <li>
+        <Link 
+          to='mutualfund' 
+          className={`dropdown-item ${activeSubmenu === "mutualfund" ? "text-dark fw-bold" : ""}`}
+          onClick={() => setActiveSubmenu("mutualfund")}
+        >
+          Mutual Fund
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to='insurance' 
+          className={`dropdown-item ${activeSubmenu === "insurance" ? "text-dark fw-bold" : ""}`}
+          onClick={() => setActiveSubmenu("insurance")}
+        >
+          Insurance
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to='loan' 
+          className={`dropdown-item ${activeSubmenu === "loan" ? "text-dark fw-bold" : ""}`}
+          onClick={() => setActiveSubmenu("loan")}
+        >
+          Loan
+        </Link>
+      </li>
+      <li>
+        <Link 
+          to='structuredProduct' 
+          className={`dropdown-item ${activeSubmenu === "structuredProduct" ? "text-dark fw-bold" : ""}`}
+          onClick={() => setActiveSubmenu("structuredProduct")}
+        >
+          Structured Products
+        </Link>
+      </li>
+    </ul>
+  )}
+</li>
+
 
             {/* Precise Tools Dropdown */}
             <li

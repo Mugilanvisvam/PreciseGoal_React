@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@300;400;700&display=swap");
+
+.comic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.comic-intro {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.comic-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.comic-row.left {
+  justify-content: flex-start;
+}
+
+.comic-row.right {
+  justify-content: flex-end;
+}
+
+.comic-character {
+  width: 80px;
+  height: auto;
+}
+
+.speech-bubble {
+  position: relative;
+  border-radius: 15px;
+  padding: 15px;
+  max-width: 300px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: #fff; /* White text for better contrast */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.left .speech-bubble {
+  background: #1362a2; /* Blue for person1 */
+  margin-left: 10px;
+}
+
+.right .speech-bubble {
+  background: #0f8b8b; /* Teal for person2 */
+  margin-right: 10px;
+}
+
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 10px;
+  border-style: solid;
+}
+
+.left .speech-bubble::before {
+  left: -20px;
+  border-color: transparent #1362a2 transparent transparent;
+}
+
+.right .speech-bubble::before {
+  right: -20px;
+  border-color: transparent transparent transparent #0f8b8b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

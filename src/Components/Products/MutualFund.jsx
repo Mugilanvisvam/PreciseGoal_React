@@ -34,7 +34,7 @@ const MutualFundsAnimated = () => {
     if (visibleIndex < conversations.length) {
       const timeout = setTimeout(() => {
         setVisibleIndex((prevIndex) => prevIndex + 1);
-      }, 3000); // Each message appears after 2 seconds
+      }, 2000); // Each message appears after 2 seconds
 
       return () => clearTimeout(timeout);
     }
@@ -50,6 +50,7 @@ const MutualFundsAnimated = () => {
   return (
     <div className="comic-container">
        <div className="comic-intro">
+       <h5 style={{color:'#57C675'}}>MUTUAL FUND</h5>
       <p>
         We at <strong>Precise Goal</strong> focus on balancing risks with returns. 
         We recommend the above portfolios to investors based on their risk appetite. 

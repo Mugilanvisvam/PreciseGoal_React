@@ -8,6 +8,9 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Services from './Pages/Services';
 import MutualFund from './Components/Products/MutualFund';
+import Insurance from './Components/Products/Insurance';
+import Loan from './Components/Products/Loan';
+import StructuredProduct from './Components/Products/StructuredProduct';
 function App() {
   return (
     <Router>
@@ -20,6 +23,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Services />} />
           <Route path="/mutualfund" element={<MutualFund />} />
+          <Route path="/insurance" element={<Insurance />} />
+          <Route path="/loan" element={<Loan />} />
+          <Route path="/structuredProduct" element={<StructuredProduct />} />
         </Routes>
         <Footer />
       </div>

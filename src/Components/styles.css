@@ -148,25 +148,35 @@ footer a:hover {
     max-width: 100%;
   }
 }
-.carousel {
-  max-width: 800px; /* Set max width */
+.carousel-container {
   width: 100%;
+  max-width: 1000px;
   margin: auto;
+  padding: 2% 0;
 }
 
 .carousel-image {
-  height: 400px; /* Fixed height */
-  object-fit: cover; /* Ensures images scale properly */
+  width: 100%;
+  height: 500px; /* Default height for larger screens */
+  object-fit: cover;
+  border-radius: 20px; /* Optional: adds rounded corners */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .carousel-image {
+    height: 400px; /* Adjust height for tablets */
+  }
 }
 
 @media (max-width: 768px) {
   .carousel-image {
-    height: 250px; /* Adjust height for smaller screens */
+    height: 300px; /* Adjust height for mobile */
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .carousel-image {
-    height: 200px; /* Further reduce height for mobile */
+    height: 250px; /* Smaller height for small phones */
   }
 }
