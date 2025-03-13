@@ -11,6 +11,7 @@ import MutualFund from './Components/Products/MutualFund';
 import Insurance from './Components/Products/Insurance';
 import Loan from './Components/Products/Loan';
 import StructuredProduct from './Components/Products/StructuredProduct';
+import CrorepatiCalculator from './Components/Calculators/CrorepatiCalculator';
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/loan" element={<Loan />} />
           <Route path="/structuredProduct" element={<StructuredProduct />} />
+          <Route path="/becomeacrorepaticalculator" element={<CrorepatiCalculator />} />
         </Routes>
         <Footer />
       </div>
