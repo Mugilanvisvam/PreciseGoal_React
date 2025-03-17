@@ -21,6 +21,15 @@ import RetirementPlanningCalculator from './Components/Calculators/RetirementPla
 import PPFCalculator from './Components/Calculators/PPFCalculator';
 import EPFCalculator from './Components/Calculators/EPFCalculator';
 import AssetAllocationCalculator from './Components/Calculators/AssetAllocationCalculator';
+import HomeLoanCalculator from './Components/Calculators/HomeLoanCalculator';
+import PersonalLoanCalculator from './Components/Calculators/PersonalLoanCalculator';
+import CarLoanCalculator from './Components/Calculators/CarLoanCalculator';
+import EducationLoanCalculator from './Components/Calculators/EducationLoanCalculator';
+import GoalSettingCalculator from './Components/Calculators/GoalSettingCalculator';
+import CompositeGoalPlanner from './Components/Calculators/CompositeGoalPlanner';
+import CostInflationIndexCalculator from './Components/Calculators/CostInflationIndexCalculator';
+import CompoundingCalculator from './Components/Calculators/CompoundingCalculator';
+import SpendingLessCalculator from './Components/Calculators/SpendingLessCalculator';
 function App() {
   return (
     <Router>
@@ -46,9 +55,16 @@ function App() {
           <Route path="/ppfcalculatorcalculator" element={<PPFCalculator />} />
           <Route path="/epfcalculatorcalculator" element={<EPFCalculator />} />
           <Route path="/assetallocationcalculator" element={<AssetAllocationCalculator />} />
-
-
-
+          <Route path="/homeloanemicalculator" element={<HomeLoanCalculator />} />
+          <Route path="/personalloanemicalculator" element={<PersonalLoanCalculator />} />
+          <Route path="/carloanemicalculator" element={<CarLoanCalculator />} />
+          <Route path="/educationloanemicalculator" element={<EducationLoanCalculator />} />
+          <Route path="/goalsettingcalculator" element={<GoalSettingCalculator />} />
+          <Route path="/financialgoalplannercalculator" element={<CompositeGoalPlanner />} />
+          <Route path="/costinflationindexcalculator" element={<CostInflationIndexCalculator />} />
+          <Route path="/compoundingcalculatorcalculator" element={<CompoundingCalculator />} />
+          <Route path="/spendinglesscalculatorcalculator" element={<SpendingLessCalculator />} />
+          
         </Routes>
         <Footer />
       </div>
