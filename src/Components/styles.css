@@ -180,3 +180,29 @@ footer a:hover {
     height: 250px; /* Smaller height for small phones */
   }
 }
+
+.calculator-column {
+  flex: 1 1 22%;  /* Default for large screens */
+  min-width: 250px;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) {
+  .calculator-column {
+    flex: 1 1 45%;  /* Two columns */
+    min-width: 200px;
+  }
+}
+
+/* Small screens (mobile phones) */
+@media (max-width: 600px) {
+  .dropdown-menu {
+    flex-direction: column;  /* Stack items vertically */
+    max-height: 400px; /* Prevent overflow */
+  }
+
+  .calculator-column {
+    flex: 1 1 100%;  /* Single column */
+    min-width: auto;
+  }
+}

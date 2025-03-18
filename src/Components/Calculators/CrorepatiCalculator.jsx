@@ -117,21 +117,31 @@ const CrorepatiCalculator = () => {
 
         {/* Pie Chart Card */}
         <div className="col-md-4">
-          <div className="card p-3">
-            <h5 className="card-title text-primary">Investment Breakdown</h5>
-            <Chart
-              chartType="PieChart"
-              width="100%"
-              height="250px"
-              data={[
-                ["Type", "Amount"],
-                ["Amount Invested", totalSipInvestment],
-                ["Total Growth", totalGrowth],
-              ]}
-              options={{ pieHole: 0.4 }}
-            />
-          </div>
-        </div>
+  <div className="card p-3">
+    <h5 className="card-title text-primary">Investment Breakdown</h5>
+    <Chart
+      chartType="PieChart"
+      width="100%"
+      height="300px" // Match Target Amount SIP Calculator height
+      data={[
+        ["Category", "Amount"],
+        ["Invested", totalSipInvestment], // Shorter labels for consistency
+        ["Growth", totalGrowth],
+      ]}
+      options={{
+        pieHole: 0.4,
+        legend: {
+          position: "bottom", // Moves legend below the chart
+          alignment: "center",
+          textStyle: { fontSize: 14 }, // Adjust font size for clarity
+        },
+        chartArea: { width: "90%", height: "80%" }, // Expands the chart
+        tooltip: { showColorCode: true }, // Enables tooltips
+      }}
+    />
+  </div>
+</div>
+
 
         {/* Results Card */}
         <div className="col-md-4">

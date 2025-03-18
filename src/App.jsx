@@ -4,7 +4,7 @@ import TopBar from './Components/TopBar';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Pages/Home';
-import About from './Pages/About'; 
+import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Services from './Pages/Services';
 import MutualFund from './Components/Products/MutualFund';
@@ -30,6 +30,13 @@ import CompositeGoalPlanner from './Components/Calculators/CompositeGoalPlanner'
 import CostInflationIndexCalculator from './Components/Calculators/CostInflationIndexCalculator';
 import CompoundingCalculator from './Components/Calculators/CompoundingCalculator';
 import SpendingLessCalculator from './Components/Calculators/SpendingLessCalculator';
+import InflationCalculator from './Components/Calculators/InflationCalculator';
+import HumanLifeValueCalculator from './Components/Calculators/HumanLifeValueCalculator';
+import LumpsumTargetCalculator from './Components/Calculators/LumpsumTargetCalculator';
+import LumpsumCalculator from './Components/Calculators/LumpsumCalculator';
+import EducationPlanner from './Components/Calculators/EducationPlanner';
+import NetWorthCalculator from './Components/Calculators/NetWorthCalculator';
+
 function App() {
   return (
     <Router>
@@ -45,26 +52,31 @@ function App() {
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/loan" element={<Loan />} />
           <Route path="/structuredProduct" element={<StructuredProduct />} />
-          <Route path="/becomeacrorepaticalculator" element={<CrorepatiCalculator />} />
-          <Route path="/sipcalculatorcalculator" element={<SIPCalculator />} />
-          <Route path="/mfsipstepupcalculator" element={<StepUpSIPCalculator />} />
-          <Route path="/goalbasedtopupsipcalculator" element={<GoalTopUpSIPCalculator />} />
-          <Route path="/targetamountsipcalculator" element={<TargetAmountSIPCalculator />} />
-          <Route path="/sipwithannualincreasecalculator" element={<SIPAnnualIncreaseCalculator />} />
-          <Route path="/retirementplanningcalculator" element={<RetirementPlanningCalculator />} />
-          <Route path="/ppfcalculatorcalculator" element={<PPFCalculator />} />
-          <Route path="/epfcalculatorcalculator" element={<EPFCalculator />} />
-          <Route path="/assetallocationcalculator" element={<AssetAllocationCalculator />} />
-          <Route path="/homeloanemicalculator" element={<HomeLoanCalculator />} />
-          <Route path="/personalloanemicalculator" element={<PersonalLoanCalculator />} />
-          <Route path="/carloanemicalculator" element={<CarLoanCalculator />} />
-          <Route path="/educationloanemicalculator" element={<EducationLoanCalculator />} />
-          <Route path="/goalsettingcalculator" element={<GoalSettingCalculator />} />
-          <Route path="/financialgoalplannercalculator" element={<CompositeGoalPlanner />} />
-          <Route path="/costinflationindexcalculator" element={<CostInflationIndexCalculator />} />
-          <Route path="/compoundingcalculatorcalculator" element={<CompoundingCalculator />} />
-          <Route path="/spendinglesscalculatorcalculator" element={<SpendingLessCalculator />} />
-          
+          <Route path="/become-a-crorepati-calculator" element={<CrorepatiCalculator />} />
+          <Route path="/sip-calculator" element={<SIPCalculator />} />
+          <Route path="/mf-sip-step-up-calculator" element={<StepUpSIPCalculator />} />
+          <Route path="/goal-based-top-up-sip-calculator" element={<GoalTopUpSIPCalculator />} />
+          <Route path="/target-amount-sip-calculator" element={<TargetAmountSIPCalculator />} />
+          <Route path="/sip-with-annual-increase-calculator" element={<SIPAnnualIncreaseCalculator />} />
+          <Route path="/retirement-planning-calculator" element={<RetirementPlanningCalculator />} />
+          <Route path="/ppf-calculator" element={<PPFCalculator />} />
+          <Route path="/epf-calculator" element={<EPFCalculator />} />
+          <Route path="/asset-allocation-calculator" element={<AssetAllocationCalculator />} />
+          <Route path="/home-loan-emi-calculator" element={<HomeLoanCalculator />} />
+          <Route path="/personal-loan-emi-calculator" element={<PersonalLoanCalculator />} />
+          <Route path="/car-loan-emi-calculator" element={<CarLoanCalculator />} />
+          <Route path="/education-loan-emi-calculator" element={<EducationLoanCalculator />} />
+          <Route path="/goal-setting-calculator" element={<GoalSettingCalculator />} />
+          <Route path="/financial-goal-planner-calculator" element={<CompositeGoalPlanner />} />
+          <Route path="/cost-inflation-index-calculator" element={<CostInflationIndexCalculator />} />
+          <Route path="/compounding-calculator" element={<CompoundingCalculator />} />
+          <Route path="/spending-less-calculator" element={<SpendingLessCalculator />} />
+          <Route path="/future-value-inflation-calculator" element={<InflationCalculator />} />
+          <Route path="/human-life-value-calculator" element={<HumanLifeValueCalculator />} />
+          <Route path="/lumpsum-target-calculator" element={<LumpsumTargetCalculator />} />
+          <Route path="/lumpsum-calculator" element={<LumpsumCalculator />} />
+          <Route path="/children-education-planner-calculator" element={<EducationPlanner />} />
+          <Route path="/net-worth-calculator" element={<NetWorthCalculator />} />
         </Routes>
         <Footer />
       </div>
