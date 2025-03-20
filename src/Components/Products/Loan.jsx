@@ -190,7 +190,7 @@ const LoanAnimated = () => {
     <div className="insurance-container">
       {/* Left Side Content */}
       <div className="content-section">
-        <h2 className="section-title"> Insurance Plans </h2>
+        <h2 className="section-title"> Loan Plans </h2>
         <div className="content-grid">
           {content.map((item, index) => (
             <div key={index} className="content-card fade-in">

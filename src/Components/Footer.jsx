@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../Components/styles.css'; 
+import '../Components/styles.css';
 import Appstore from '../assets/pngegg.png';
 import Logo from '../assets/taglogo.png';
 
@@ -38,21 +38,27 @@ const Footer = () => {
           <div className="col-6 col-md-3 mb-4">
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
-              {["About Us", "Smart Portfolio", "SIP Calculator", "Register", "Contact Us"].map((link, index) => (
-                <li key={index}><a href="#" className="text-dark">{link}</a></li>
-              ))}
+              <li><a href="/about" className="text-dark">About Us</a></li>
+              <li><a href="/service" className="text-dark">Services</a></li>
+              <li><a href="/sip-calculator" className="text-dark">SIP Calculator</a></li>
+              <li><a href="https://precisegoal.my-portfolio.co.in/app/#/public/signup/1" className="text-dark" target="_blank" rel="noopener noreferrer">Register</a></li>
+              <li><a href="/contact" className="text-dark">Contact Us</a></li>
             </ul>
           </div>
+
 
           {/* Center: Useful Links */}
           <div className="col-6 col-md-3 mb-4">
             <h5>Useful Links</h5>
             <ul className="list-unstyled">
-              {["Products", "Disclaimer", "Sitemap", "Privacy Policy", "Terms & Conditions"].map((link, index) => (
-                <li key={index}><a href="#" className="text-dark">{link}</a></li>
-              ))}
+              <li><a href="/mutualfund" className="text-dark">Products</a></li>
+              <li><a href="/disclaimer" className="text-dark">Disclaimer</a></li>
+              <li><a href="https://goo.gl/maps/jajuu1CC7isDKxjy7" className="text-dark">Sitemap</a></li>
+              <li><a href="/privacypolicy" className="text-dark">Privacy Policy</a></li>
+              <li><a href="/terms&condition" className="text-dark">Terms & Conditions</a></li>
             </ul>
           </div>
+
 
           {/* Right: Mobile Apps & Legal Info */}
           <div className="col-12 col-md-3 text-center text-md-start">

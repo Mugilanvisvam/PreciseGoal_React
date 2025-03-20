@@ -36,6 +36,9 @@ import LumpsumTargetCalculator from './Components/Calculators/LumpsumTargetCalcu
 import LumpsumCalculator from './Components/Calculators/LumpsumCalculator';
 import EducationPlanner from './Components/Calculators/EducationPlanner';
 import NetWorthCalculator from './Components/Calculators/NetWorthCalculator';
+import DisclaimerPage from './Components/Disclaimer';
+import PrivacyPolicy from './Components/PrivacyPolicy';
+import TermsAndConditions from './Components/TermsAndConditions';
 
 function App() {
   return (
@@ -48,6 +51,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Services />} />
+          <Route path="/disclaimer" element={<DisclaimerPage />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/terms&condition" element={<TermsAndConditions />} />
           <Route path="/mutualfund" element={<MutualFund />} />
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/loan" element={<Loan />} />
