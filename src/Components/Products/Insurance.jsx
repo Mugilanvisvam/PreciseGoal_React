@@ -1,55 +1,126 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import {
+  FaQuestionCircle, FaShieldAlt, FaCheckCircle, FaCarCrash, FaUserMd,
+  FaMoneyBillWave, FaUserShield, FaHeartbeat, FaHome, FaBriefcaseMedical,
+  FaUmbrella
+} from "react-icons/fa";
 import "./Insurance.css";
 import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
 
-const insuranceConversations = [
-  { text: "What is Insurance?", person: "person1" },
-  { text: "Insurance is an agreement between an individual and an insurance company, providing financial safety during unforeseen events.", person: "person2" },
-  { text: "What are the benefits of insurance?", person: "person1" },
-  { text: "Insurance acts as a safety net, manages money effectively, and offers tax benefits.", person: "person2" },
-  { text: "How does Precise Goal help with insurance?", person: "person1" },
-  { text: "Precise Goal provides hassle-free solutions for motor and health insurance.", person: "person2" },
-  { text: "Tell me about Motor Insurance.", person: "person1" },
-  { text: "Motor insurance includes third-party and comprehensive coverage, offering financial protection against accidents, theft, and natural calamities.", person: "person2" },
-  { text: "What should I consider before buying motor insurance?", person: "person1" },
-  { text: "Factors like coverage, add-ons, claim settlement ratio, and network garages are crucial.", person: "person2" },
-  { text: "What about Health Insurance?", person: "person1" },
-  { text: "Health insurance covers medical expenses, hospitalizations, pre-existing ailments, and offers cashless treatment options.", person: "person2" },
-  { text: "How does it benefit me?", person: "person1" },
-  { text: "It provides financial security during medical emergencies, reducing out-of-pocket expenses.", person: "person2" },
+const conversations = [
+  { text: "Hey! Do you know why insurance is important?", person: "person1" },
+  { text: "Yes! It helps protect our financial future from uncertainties.", person: "person2" },
+  { text: "Exactly! But choosing the right policy is confusing.", person: "person1" },
+  { text: "That’s where SecureShield helps! They offer tailored insurance plans.", person: "person2" },
+  { text: "What types of insurance do they provide?", person: "person1" },
+  { text: "They offer Life, Health, Auto, Home, and Business Insurance.", person: "person2" },
+  { text: "How do I know which policy is right for me?", person: "person1" },
+  { text: "SecureShield experts analyze your needs and suggest the best options.", person: "person2" },
+  { text: "That sounds convenient! Can I get instant quotes?", person: "person1" },
+  { text: "Yes! You can compare and choose plans online within minutes.", person: "person2" },
 ];
+
+const content = [
+  {
+    icon: <FaQuestionCircle />,
+    title: "What is Insurance?",
+    text: "An agreement between an individual and an insurance company, offering financial protection in case of unfortunate events."
+  },
+  {
+    icon: <FaShieldAlt />, 
+    title: "Benefits of Insurance", 
+    text: "Provides financial security, helps manage money efficiently, and offers tax benefits."
+  },
+  {
+    icon: <FaCheckCircle />, 
+    title: "Precise Insurance", 
+    text: "Ensures a hassle-free experience for health and motor insurance, prioritizing protection over investment."
+  },
+  {
+    icon: <FaCarCrash />, 
+    title: "Motor Insurance", 
+    text: "Covers vehicle damages, accidents, theft, natural calamities, and third-party liabilities."
+  },
+  {
+    icon: <FaUserMd />, 
+    title: "Health Insurance", 
+    text: "Provides coverage for medical expenses, hospitalization, and preventive healthcare."
+  },
+  {
+    icon: <FaMoneyBillWave />, 
+    title: "How to Choose a Policy?", 
+    text: "Assess your needs, compare policies, and select the right coverage."
+  },
+  {
+    icon: <FaUserShield />, 
+    title: "Why SecureShield?", 
+    text: "We provide expert guidance, affordable plans, and hassle-free claims."
+  },
+  {
+    icon: <FaHeartbeat />, 
+    title: "Health Insurance Details", 
+    text: "Covers hospitalization, medication, and medical emergencies, with options up to Rs. 6 Crores."
+  },
+  {
+    icon: <FaHome />, 
+    title: "Home Insurance", 
+    text: "Safeguard your home from natural disasters and theft."
+  },
+  {
+    icon: <FaBriefcaseMedical />, 
+    title: "Life Insurance", 
+    text: "Ensure your family’s financial security with life coverage."
+  },
+  {
+    icon: <FaUmbrella />, 
+    title: "Business Insurance", 
+    text: "Cover business risks with customized insurance solutions."
+  },
+];
+
 
 const InsuranceAnimated = () => {
   const [visibleIndex, setVisibleIndex] = useState(0);
-  const chatEndRef = useRef(null);
 
   useEffect(() => {
-    if (visibleIndex < insuranceConversations.length) {
+    if (visibleIndex < conversations.length) {
       const timeout = setTimeout(() => {
         setVisibleIndex((prevIndex) => prevIndex + 1);
-      }, 2000);
-
+      }, 1500);
       return () => clearTimeout(timeout);
     }
   }, [visibleIndex]);
 
   return (
-    <div className="comic-container">
-      <div className="comic-intro">
-        <h5 style={{ color: '#57C675' }}>INSURANCE</h5>
-        <p>
-          <strong>Precise Goal</strong> ensures a smooth insurance experience by guiding you to the best policies for your needs. 
-          Be it health or motor insurance, we've got you covered! 🚗🏥
-        </p>
-      </div>
-      {insuranceConversations.slice(0, visibleIndex).map((chat, index) => (
-        <div key={index} className={`comic-row ${chat.person === "person1" ? "left" : "right"} fade-in`}>
-          <img src={chat.person === "person1" ? person1 : person2} alt="Person" className="comic-character" />
-          <div className="speech-bubble">{chat.text}</div>
+    <div className="insurance-container">
+      {/* Left Side Content */}
+      <div className="content-section">
+        <h2 className="section-title"> Insurance Plans </h2>
+        <div className="content-grid">
+          {content.map((item, index) => (
+            <div key={index} className="content-card fade-in">
+              <div className="icon">{item.icon}</div>
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
+            </div>
+          ))}
         </div>
-      ))}
-      <div ref={chatEndRef} />
+        <button className="invest-btn">Get a Quote 🚀</button>
+      </div>
+
+      {/* Right Side Chat Section */}
+      <div className="chat-section">
+        <h3>💬 Live Discussion</h3>
+        <div className="chat-box">
+          {conversations.slice(0, visibleIndex).map((chat, index) => (
+            <div key={index} className={`chat-row ${chat.person === "person1" ? "left" : "right"} fade-in`}>
+              <img src={chat.person === "person1" ? person1 : person2} alt="Person" className="chat-avatar" />
+              <div className="speech-bubble">{chat.text}</div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

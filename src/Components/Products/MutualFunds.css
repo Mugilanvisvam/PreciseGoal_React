@@ -1,97 +1,144 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@300;400;700&display=swap");
-
-.comic-container {
+/* General Layout */
+.mutual-funds-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
   padding: 20px;
-  max-width: 100%;
-}
-
-.comic-intro {
-  font-size: 18px;
-  font-weight: 500;
-  color: #333;
-  line-height: 1.5;
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.comic-row {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 700px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.5s ease-in forwards;
-}
-
-.comic-row.left {
-  justify-content: flex-start;
-}
-
-.comic-row.right {
-  justify-content: flex-end;
-}
-
-.comic-character {
-  width: 80px;
-  height: auto;
-}
-
-.speech-bubble {
-  position: relative;
+  gap: 30px;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
   border-radius: 15px;
-  padding: 15px;
-  max-width: 300px;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  color: #fff; /* White text for better contrast */
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Left Side Content */
+.content-section {
+  width: 40%;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
+.section-title {
+  font-size: 24px;
+  color: #2d89ff;
+  margin-bottom: 15px;
+}
+
+/* Grid Layout for Cards */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.content-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  font-size: 30px;
+  color: #ff5e62;
+  margin-bottom: 10px;
+}
+
+.content-card h4 {
+  font-size: 18px;
+  color: #2d89ff;
+}
+
+.invest-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #ff914d, #ff5e62);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.invest-btn:hover {
+  background: linear-gradient(45deg, #ff5e62, #ff914d);
+  transform: scale(1.05);
+}
+
+/* Right Side Chat Section */
+.chat-section {
+  width: 55%;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* .chat-box {
+  overflow-y: auto;
+  height: 450px;
+  padding: 10px;
+} */
+
+/* Chat Messages */
+.chat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.chat-row.left {
+  justify-content: flex-start;
+}
+
+.chat-row.right {
+  justify-content: flex-end;
+}
+
+.chat-avatar {
+  width: 65px;  /* Increase the width */
+  height: 65px; /* Increase the height */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.speech-bubble {
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 70%;
+  font-size: 14px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
 .left .speech-bubble {
-  background: #1362a2; /* Blue for person1 */
-  margin-left: 10px;
+  background-color: #e3e3e3;
+  color: white;
 }
 
 .right .speech-bubble {
-  background: #0f8b8b; /* Teal for person2 */
-  margin-right: 10px;
+  background-color: #2d89ff;
+  color: white;
 }
 
-.speech-bubble::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border-width: 10px;
-  border-style: solid;
-}
-
-.left .speech-bubble::before {
-  left: -20px;
-  border-color: transparent #1362a2 transparent transparent;
-}
-
-.right .speech-bubble::before {
-  right: -20px;
-  border-color: transparent transparent transparent #0f8b8b;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mutual-funds-container {
+    flex-direction: column;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .content-section, .chat-section {
+    width: 100%;
   }
 }

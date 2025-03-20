@@ -51,7 +51,7 @@ function App() {
           <Route path="/mutualfund" element={<MutualFund />} />
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/loan" element={<Loan />} />
-          <Route path="/structuredProduct" element={<StructuredProduct />} />
+          <Route path="/structuredproducts" element={<StructuredProduct />} />
           <Route path="/become-a-crorepati-calculator" element={<CrorepatiCalculator />} />
           <Route path="/sip-calculator" element={<SIPCalculator />} />
           <Route path="/mf-sip-step-up-calculator" element={<StepUpSIPCalculator />} />

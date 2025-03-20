@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { FaChartLine, FaUserShield, FaRocket, FaDollarSign, FaListAlt, FaUsers, FaHandshake, FaUserCheck, FaClock, FaExchangeAlt } from "react-icons/fa";
 import "./MutualFunds.css";
 import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
@@ -26,52 +27,96 @@ const conversations = [
   { text: "Yes! They help you invest wisely and achieve financial growth.", person: "person2" },
 ];
 
+const content = [
+  {
+    icon: <FaChartLine />,
+    title: "What is a Mutual Fund?",
+    text: "A mutual fund pools money from multiple investors and invests in stocks, bonds, and securities.",
+  },
+  {
+    icon: <FaUserShield />,
+    title: "Why Choose PG Asset?",
+    text: "We provide expert guidance, customer-centric strategies, and research-driven portfolio management.",
+  },
+  {
+    icon: <FaRocket />,
+    title: "How to Start Investing?",
+    text: "Sign up online, complete KYC, choose a plan, and start investing in 10 minutes!",
+  },
+  {
+    icon: <FaDollarSign />,
+    title: "Investing in Mutual Funds?",
+    text: "Mutual Funds: More than Just Stocks! Yes, mutual funds offer exposure to a variety of asset classes, including equities, bonds, real estate, commodities (gold & silver), and foreign assets. Explore the possibilities with PG Asset today!",
+  },
+  {
+    icon: <FaListAlt />,
+    title: "How to Choose a Mutual Fund?",
+    text: "With over 40+ AMCs, 30+ sub-categories, and 2500+ schemes, choosing the right mutual fund can be overwhelming. But don’t worry—PG Asset is here to help!",
+  },
+  {
+    icon: <FaUsers />,
+    title: "Why Choose Us?",
+    text: "We provide expert guidance, proven experience, customer-centric approaches, and research-driven strategies for your investments.",
+  },
+  {
+    icon: <FaHandshake />,
+    title: "How Are We Different?",
+    text: "We go beyond traditional financial intermediaries by offering goal-based financial planning, risk analysis, customized portfolio creation, and holistic wealth management.",
+  },
+  {
+    icon: <FaUserCheck />,
+    title: "Open Your Account Online in Just 10 Minutes!",
+    text: "Get started in a few simple steps: PAN details, KYC validation, BSEStar MF registration, mandate registration, and start investing!",
+  },
+  {
+    icon: <FaClock />,
+    title: "How to Transact with PG Asset?",
+    text: "Log in to our app or portal, select your scheme, process your order, get unit allotment, and track your investments anytime.",
+  },
+];
+
+
 const MutualFundsAnimated = () => {
   const [visibleIndex, setVisibleIndex] = useState(0);
-  const chatEndRef = useRef(null);
 
   useEffect(() => {
     if (visibleIndex < conversations.length) {
       const timeout = setTimeout(() => {
         setVisibleIndex((prevIndex) => prevIndex + 1);
-      }, 2000); // Each message appears after 2 seconds
-
+      }, 1500);
       return () => clearTimeout(timeout);
     }
   }, [visibleIndex]);
 
-  // // Auto scroll to the latest message
-  // useEffect(() => {
-  //   if (chatEndRef.current) {
-  //     chatEndRef.current.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, [visibleIndex]);
-
   return (
-    <div className="comic-container">
-       <div className="comic-intro">
-       <h5 style={{color:'#57C675'}}>MUTUAL FUND</h5>
-      <p>
-        We at <strong>Precise Goal</strong> focus on balancing risks with returns. 
-        We recommend the above portfolios to investors based on their risk appetite. 
-        This helps to build a well-diversified smart portfolio and safeguard against market fluctuations. 😊
-      </p>
-    </div>
-      {conversations.slice(0, visibleIndex).map((chat, index) => (
-        <div
-          key={index}
-          className={`comic-row ${chat.person === "person1" ? "left" : "right"} fade-in`}
-        >
-          <img
-            src={chat.person === "person1" ? person1 : person2}
-            alt="Person"
-            className="comic-character"
-          />
-          <div className="speech-bubble">{chat.text}</div>
+    <div className="mutual-funds-container">
+      {/* Left Side Content */}
+      <div className="content-section">
+        <h2 className="section-title"> Mutual Funds</h2>
+        <div className="content-grid">
+          {content.map((item, index) => (
+            <div key={index} className="content-card fade-in">
+              <div className="icon">{item.icon}</div>
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
+            </div>
+          ))}
         </div>
-      ))}
-      {/* Empty div to track end of messages for auto-scroll */}
-      <div ref={chatEndRef} />
+        <button className="invest-btn">Start Investing 🚀</button>
+      </div>
+
+      {/* Right Side Chat Section */}
+      <div className="chat-section">
+        <h3>💬 Live Discussion</h3>
+        <div className="chat-box">
+          {conversations.slice(0, visibleIndex).map((chat, index) => (
+            <div key={index} className={`chat-row ${chat.person === "person1" ? "left" : "right"} fade-in`}>
+              <img src={chat.person === "person1" ? person1 : person2} alt="Person" className="chat-avatar" />
+              <div className="speech-bubble">{chat.text}</div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
