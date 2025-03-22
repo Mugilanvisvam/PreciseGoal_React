@@ -1,102 +1,71 @@
-/* General Layout */
-.mutual-funds-container {
-  display: flex;
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  gap: 30px;
-  justify-content: space-between;
-  background: linear-gradient(135deg, #e3f2fd, #ffffff);
-  border-radius: 15px;
-}
-
-/* Left Side Content */
-.content-section {
-  width: 40%;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.section-title {
-  font-size: 24px;
-  color: #2d89ff;
-  margin-bottom: 15px;
-}
-
-/* Grid Layout for Cards */
-.content-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-.content-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.content-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.icon {
-  font-size: 30px;
-  color: #ff5e62;
-  margin-bottom: 10px;
-}
-
-.content-card h4 {
-  font-size: 18px;
-  color: #2d89ff;
-}
-
-.invest-btn {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
+.mutual-card {
+  transition: all 0.3s ease-in-out;
   border: none;
-  border-radius: 8px;
-  background: linear-gradient(45deg, #ff914d, #ff5e62);
-  color: white;
-  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: 0.3s;
+  height: 100%; /* Ensures equal card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.invest-btn:hover {
-  background: linear-gradient(45deg, #ff5e62, #ff914d);
+.mutual-card .icon {
+  font-size: 2rem;
+  color: #007bff;
+  transition: color 0.3s ease-in-out;
+}
+
+.mutual-card .content {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.mutual-card:hover {
   transform: scale(1.05);
 }
 
-/* Right Side Chat Section */
-.chat-section {
-  width: 55%;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.mutual-card:hover .icon {
+  color: #0056b3;
 }
 
-/* .chat-box {
-  overflow-y: auto;
-  height: 450px;
-  padding: 10px;
-} */
+.mutual-card:hover .content {
+  opacity: 1;
+  height: auto;
+}
 
-/* Chat Messages */
+.card {
+  transition: background 0.3s ease-in-out;
+}
+
+.card:hover {
+  background: linear-gradient(135deg, #48C774, #2A9D8F);
+  color: white; /* Optional: Change text color for better visibility */
+}
+
+.chat-section {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .chat-row {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .chat-row.left {
@@ -108,37 +77,32 @@
 }
 
 .chat-avatar {
-  width: 65px;  /* Increase the width */
-  height: 65px; /* Increase the height */
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  object-fit: cover;
+  margin: 0 10px;
 }
 
 .speech-bubble {
-  padding: 12px 18px;
-  border-radius: 20px;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border-radius: 10px;
   max-width: 70%;
-  font-size: 14px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
-.left .speech-bubble {
-  background-color: #0f8b8b;
-  color: white;
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.right .speech-bubble {
-  background-color: #1362a2;
-  color: white;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .mutual-funds-container {
-    flex-direction: column;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .content-section, .chat-section {
-    width: 100%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

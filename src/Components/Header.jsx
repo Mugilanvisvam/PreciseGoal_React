@@ -16,11 +16,10 @@ const Header = () => {
   const dropdownRef = useRef(null);
   const toolsDropdownRef = useRef(null);
 
-  const productSubmenus = [
-    { name: "Mutual Fund", path: "/mutualfund" },
-    { name: "Insurance", path: "/insurance" },
-    { name: "Loan", path: "/loan" },
-    { name: "Structured Products", path: "/structuredproducts" },
+  const companySubmenus = [
+    { name: "About Us", path: "/about" },
+    { name: "Service", path: "/service" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   const calculatorList = [
@@ -65,7 +64,7 @@ const Header = () => {
   };
 
   const toggleDropdown = (dropdown) => {
-    if (dropdown === "products") {
+    if (dropdown === "company") {
       setShowDropdown((prev) => !prev);
       setShowToolsDropdown(false);
     } else if (dropdown === "tools") {
@@ -112,35 +111,11 @@ const Header = () => {
             <li className="nav-item">
               <Link to="/" className={`nav-link ${location.pathname === "/" ? "active text-dark fw-bold" : ""}`}>Home</Link>
             </li>
-
-            {/* Products Dropdown */}
-            <li className="nav-item dropdown" ref={dropdownRef} onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
-              <a
-                href="#products"
-                className={`nav-link dropdown-toggle ${showDropdown || activeSubmenu ? "active text-dark fw-bold" : ""}`}
-                role="button"
-                onClick={() => toggleDropdown("products")}
-              >
-                Products
-              </a>
-              {showDropdown && (
-                <ul className="dropdown-menu show">
-                  {productSubmenus.map(({ name, path }, index) => (
-                    <li key={index}>
-                      <Link
-                        to={path}
-                        className={`dropdown-item ${activeSubmenu === path ? "active bg-primary text-white" : ""}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleSubmenuClick(path);
-                        }}
-                      >
-                        ➽ {name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
+            <li className="nav-item">
+              <Link to="/mutualfund" className={`nav-link ${location.pathname === "/mutualfund" ? "active text-dark fw-bold" : ""}`}>Mutual Fund</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/insurance" className={`nav-link ${location.pathname === "/insurance" ? "active text-dark fw-bold" : ""}`}>Insurance</Link>
             </li>
 
             {/* Calculators Dropdown */}
@@ -164,9 +139,9 @@ const Header = () => {
                   style={{
                     display: "flex",
                     flexWrap: "wrap",
-                    // gap: "15px", 
                     minWidth: "700px",
                     maxWidth: "1200px",
+                    right:0,
                     justifyContent: "space-between"
                   }}
                 >
@@ -199,10 +174,39 @@ const Header = () => {
               )}
             </li>
 
-
+{/* Company Dropdown */}
+<li className="nav-item dropdown" ref={dropdownRef} onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
+              <a
+                href="#company"
+                className={`nav-link dropdown-toggle ${showDropdown || activeSubmenu ? "active text-dark fw-bold" : ""}`}
+                role="button"
+                onClick={() => toggleDropdown("company")}
+              >
+                Company
+              </a>
+              {showDropdown && (
+                <ul className="dropdown-menu show">
+                  {companySubmenus.map(({ name, path }, index) => (
+                    <li key={index}>
+                      <Link
+                        to={path}
+                        className={`dropdown-item ${activeSubmenu === path ? "active bg-primary text-white" : ""}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleSubmenuClick(path);
+                        }}
+                      >
+                        ➽ {name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+{/* 
             <li className="nav-item"><Link to="/about" className={`nav-link ${location.pathname === "/about" ? "active text-dark fw-bold" : ""}`}>About Us</Link></li>
             <li className="nav-item"><Link to="/service" className={`nav-link ${location.pathname === "/service" ? "active text-dark fw-bold" : ""}`}>Services</Link></li>
-            <li className="nav-item"><Link to="/contact" className={`nav-link ${location.pathname === "/contact" ? "active text-dark fw-bold" : ""}`}>Contact Us</Link></li>
+            <li className="nav-item"><Link to="/contact" className={`nav-link ${location.pathname === "/contact" ? "active text-dark fw-bold" : ""}`}>Contact Us</Link></li> */}
           </ul>
 
           <div className="d-flex">
