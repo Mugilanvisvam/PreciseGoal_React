@@ -43,6 +43,7 @@ const Footer = () => {
               <li><a href="/sip-calculator" className="text-dark">SIP Calculator</a></li>
               <li><a href="https://precisegoal.my-portfolio.co.in/app/#/public/signup/1" className="text-dark" target="_blank" rel="noopener noreferrer">Register</a></li>
               <li><a href="/contact" className="text-dark">Contact Us</a></li>
+              <li><a href="https://goo.gl/maps/jajuu1CC7isDKxjy7" className="text-dark">Sitemap</a></li>
             </ul>
           </div>
 
@@ -51,9 +52,9 @@ const Footer = () => {
           <div className="col-6 col-md-3 mb-4">
             <h5>Useful Links</h5>
             <ul className="list-unstyled">
-              <li><a href="/mutualfund" className="text-dark">Products</a></li>
+              <li><a href="/mutualfund" className="text-dark">MutualFund</a></li>
+              <li><a href="/insurance" className="text-dark">Insurance</a></li>
               <li><a href="/disclaimer" className="text-dark">Disclaimer</a></li>
-              <li><a href="https://goo.gl/maps/jajuu1CC7isDKxjy7" className="text-dark">Sitemap</a></li>
               <li><a href="/privacypolicy" className="text-dark">Privacy Policy</a></li>
               <li><a href="/terms&condition" className="text-dark">Terms & Conditions</a></li>
             </ul>

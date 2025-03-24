@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const DisclaimerPage = () => {
   return (
     <div className="container my-5">
-      <div className="card border-0 shadow-lg p-4 animate__animated animate__fadeIn">
+      <div className=" border-0 shadow-lg p-4 animate__animated animate__fadeIn">
         <h2 className="text-center fw-bold text-primary mb-4">Disclaimer</h2>
         <p className="text-dark">
           Mutual fund investments are subject to market risks. Please read the scheme information

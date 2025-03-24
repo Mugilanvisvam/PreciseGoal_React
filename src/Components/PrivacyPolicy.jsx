@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const PrivacyPolicy = () => {
   return (
     <div className="container my-5">
-      <div className="card border-0 shadow-lg p-4 animate__animated animate__fadeIn">
+      <div className="Card border-0 shadow-lg p-4 animate__animated animate__fadeIn">
         <h2 className="text-center fw-bold text-primary mb-4">Privacy Policy</h2>
         
         <p className="text-dark">

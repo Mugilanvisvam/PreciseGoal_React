@@ -42,7 +42,7 @@
 
 .card:hover {
   background: linear-gradient(135deg, #48C774, #2A9D8F);
-  color: white; /* Optional: Change text color for better visibility */
+  color: white; 
 }
 
 .chat-section {
