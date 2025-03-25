@@ -2,8 +2,11 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/ff7.jpg"; // Import the image
 import "../Components/styles.css";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section
       className="hero position-relative d-flex align-items-center text-white"
@@ -49,10 +52,10 @@ const HeroSection = () => {
 
             {/* Responsive Buttons */}
             <div className="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start">
-              <button className="btn animated-btn" onClick={() => window.location.href = "/mutualfund"}>
+              <button className="btn animated-btn" onClick={() => navigate("/mutualfund")}>
                 Mutual Fund
               </button>
-              <button className="btn animated-btn" onClick={() => window.location.href = "/insurance"}>
+              <button className="btn animated-btn" onClick={() => navigate("/insurance")}>
                 Insurance
               </button>
             </div>
