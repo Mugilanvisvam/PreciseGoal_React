@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaPhoneAlt } from "react-icons/fa";
 
 const ContactUs = () => {
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",

@@ -227,6 +227,10 @@ const InsuranceAnimated = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPerson1, setIsPerson1] = useState(true);
 
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   useEffect(() => {
     if (visibleIndex < conversations.length) {
       const timeout = setTimeout(() => {
@@ -256,8 +260,8 @@ const InsuranceAnimated = () => {
           <div key={index} className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
             <div className="card text-center p-3 mutual-card">
               <div className="icon">{item.icon}</div>
+              <h5 className="mt-3">{item.title}</h5>
               <div className="content">
-                <h5 className="mt-3">{item.title}</h5>
                 <p className="text-muted">{item.text}</p>
               </div>
             </div>

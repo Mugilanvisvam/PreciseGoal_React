@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./Services.css";
@@ -43,6 +43,9 @@ const services = [
 ];
 
 const ServicesPage = () => {
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <Container className="py-5">
       <h2 className="text-center mb-4">Our Services</h2>

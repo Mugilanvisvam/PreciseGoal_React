@@ -106,3 +106,20 @@
     transform: translateY(0);
   }
 }
+
+.register-btn {
+  background-color: white; /* White background */
+  color: black; /* Black text */
+  border: 2px solid black; /* Black border */
+  padding: 8px 16px; /* Padding for better appearance */
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px; /* Rounded shape */
+  transition: 0.3s ease-in-out;
+}
+
+.register-btn:hover {
+  background-color: black;
+  color: white;
+}
+

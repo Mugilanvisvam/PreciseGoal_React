@@ -1,8 +1,11 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./About.css"; // Import custom styles if needed
 
 const About = () => {
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <Container className="about-container py-5">
       {/* Who Are We Section */}

@@ -1,7 +1,10 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Container, Card } from "react-bootstrap";
 
 const TermsAndConditions = () => {
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <Container className="my-5">
       <Card className="p-4 shadow-lg">

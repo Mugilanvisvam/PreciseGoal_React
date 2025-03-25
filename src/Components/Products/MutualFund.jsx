@@ -76,30 +76,30 @@
 // ];
 
 // const MutualFundsAnimated = () => {
-  // const [visibleIndex, setVisibleIndex] = useState(0);
-  // const [currentIndex, setCurrentIndex] = useState(0);
-  // const [isPerson1, setIsPerson1] = useState(true);
+// const [visibleIndex, setVisibleIndex] = useState(0);
+// const [currentIndex, setCurrentIndex] = useState(0);
+// const [isPerson1, setIsPerson1] = useState(true);
 
-  // useEffect(() => {
-  //   if (visibleIndex < conversations.length) {
-  //     const timeout = setTimeout(() => {
-  //       setVisibleIndex((prevIndex) => prevIndex + 1);
-  //     }, 1500);
-  //     return () => clearTimeout(timeout);
-  //   }
-  // }, [visibleIndex]);
+// useEffect(() => {
+//   if (visibleIndex < conversations.length) {
+//     const timeout = setTimeout(() => {
+//       setVisibleIndex((prevIndex) => prevIndex + 1);
+//     }, 1500);
+//     return () => clearTimeout(timeout);
+//   }
+// }, [visibleIndex]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setIsPerson1((prev) => !prev);
-  //     if (!isPerson1) {
-  //       setCurrentIndex((prevIndex) =>
-  //         prevIndex + 2 < conversations.length ? prevIndex + 2 : 0
-  //       );
-  //     }
-  //   }, 2000);
-  //   return () => clearInterval(interval);
-  // }, [isPerson1, conversations]);
+// useEffect(() => {
+//   const interval = setInterval(() => {
+//     setIsPerson1((prev) => !prev);
+//     if (!isPerson1) {
+//       setCurrentIndex((prevIndex) =>
+//         prevIndex + 2 < conversations.length ? prevIndex + 2 : 0
+//       );
+//     }
+//   }, 2000);
+//   return () => clearInterval(interval);
+// }, [isPerson1, conversations]);
 
 //   return (
 //     <div className="mutual-funds-container">
@@ -118,22 +118,22 @@
 //         <button className="invest-btn">Start Investing 🚀</button>
 //       </div>
 
-      // {/* Bottom Chat Section */}
-      // <div className="chat-section">
-      //   <h3>💬 Live Discussion</h3>
-      //   <div className="chat-box">
-      //     {conversations.length > 0 && (
-      //       <div className={`chat-row ${isPerson1 ? "left" : "right"} fade-in`}>
-      //         <img
-      //           src={isPerson1 ? person1 : person2}
-      //           alt="Person"
-      //           className="chat-avatar"
-      //         />
-      //         <div className="speech-bubble">{conversations[currentIndex].text}</div>
-      //       </div>
-      //     )}
-      //   </div>
-      // </div>
+// {/* Bottom Chat Section */}
+// <div className="chat-section">
+//   <h3>💬 Live Discussion</h3>
+//   <div className="chat-box">
+//     {conversations.length > 0 && (
+//       <div className={`chat-row ${isPerson1 ? "left" : "right"} fade-in`}>
+//         <img
+//           src={isPerson1 ? person1 : person2}
+//           alt="Person"
+//           className="chat-avatar"
+//         />
+//         <div className="speech-bubble">{conversations[currentIndex].text}</div>
+//       </div>
+//     )}
+//   </div>
+// </div>
 //     </div>
 //   );
 // };
@@ -141,25 +141,21 @@
 // export default MutualFundsAnimated;
 
 import React, { useState, useEffect } from "react";
-import { 
-  FaChartLine, FaUserShield, FaRocket, FaDollarSign, 
-  FaListAlt, FaUsers, FaHandshake, FaUserCheck 
-} from "react-icons/fa";
+import { FaChartLine, FaListAlt, FaDollarSign, FaUserCheck, FaRocket, FaComments } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MutualFunds.css";
 import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
 
 const content = [
-  { icon: <FaChartLine />, title: "What is a Mutual Fund?", text: "A mutual fund pools money from multiple investors and invests in stocks, bonds, and securities." },
-  { icon: <FaUserShield />, title: "Why Choose PG Asset?", text: "We provide expert guidance, customer-centric strategies, and research-driven portfolio management." },
-  { icon: <FaRocket />, title: "How to Start Investing?", text: "Sign up online, complete KYC, choose a plan, and start investing in 10 minutes!" },
-  { icon: <FaDollarSign />, title: "Investing in Mutual Funds?", text: "Mutual Funds: More than Just Stocks! Explore the possibilities with PG Asset today!" },
-  { icon: <FaListAlt />, title: "How to Choose a Mutual Fund?", text: "With over 40+ AMCs, 30+ sub-categories, and 2500+ schemes, PG Asset is here to help!" },
-  { icon: <FaUsers />, title: "Why Choose Us?", text: "We provide expert guidance, proven experience, customer-centric approaches, and research-driven strategies." },
-  { icon: <FaHandshake />, title: "How Are We Different?", text: "We offer goal-based financial planning, risk analysis, and customized portfolio creation." },
-  { icon: <FaUserCheck />, title: "Open Your Account Online in Just 10 Minutes!", text: "Get started with PAN details, KYC validation, and start investing!" }
+  { icon: <FaChartLine />, title: "What is a Mutual Fund?", text: "A mutual fund is a collective investment vehicle where money from multiple investors is combined and invested in various assets like stocks, bonds, and other securities." },
+  { icon: <FaListAlt />, title: "How to Choose a Mutual Fund?", text: "Investing in Mutual Funds Made Simple! With over 40+ AMCs, 30+ sub-categories, and 2500+ schemes, PG Asset is here to help! We assist you in selecting the right funds by defining financial goals, evaluating risk appetite, and creating a diversified portfolio." },
+  { icon: <FaDollarSign />, title: "Investing in Mutual Funds?", text: "Mutual Funds: More than Just Stocks! Many think mutual funds are only about stocks, but they include equities, bonds, real estate, commodities, and foreign assets. Diversify and grow your wealth with PG Asset today!" },
+  { icon: <FaRocket />, title: "How to Transact with PG Asset?", text: "Log in to our app, select your scheme, process your order via BSEStar MF, receive unit allotment confirmation, and track your investments easily!" },
+  { icon: <FaUserCheck />, title: "Open Your Account Online in Just 10 Minutes!", text: "Get started in a few simple steps: Provide PAN details, complete KYC, register with BSEStar MF, set up your mandate, and start investing!" },
+  { icon: <FaComments />, title: "Still not convinced?", text: "See what our investors have to say!" }
 ];
+
 
 const conversations = [
   { text: "Hey! Do you know what Mutual Funds are?", person: "person1" },
@@ -188,6 +184,10 @@ const MutualFundsBootstrap = () => {
   const [visibleIndex, setVisibleIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPerson1, setIsPerson1] = useState(true);
+  
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   useEffect(() => {
     if (visibleIndex < conversations.length) {
@@ -212,15 +212,23 @@ const MutualFundsBootstrap = () => {
 
   return (
     <div className="container py-5">
-      <h2 className="text-center mb-4" style={{color:'#2A9D8F'}}>Mutual Funds</h2>
+      <h2 className="text-center mb-4" style={{ color: '#2A9D8F' }}>Mutual Funds</h2>
       <div className="row">
         {content.map((item, index) => (
-          <div key={index} className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+          <div key={index} className="col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
             <div className="card text-center p-3 mutual-card">
               <div className="icon">{item.icon}</div>
+              <h5 className="mt-3">{item.title}</h5>
               <div className="content">
-                <h5 className="mt-3">{item.title}</h5>
                 <p className="text-muted">{item.text}</p>
+                {index === content.length - 2 && ( // Show button only on the last card
+                  <button
+                    className="btn mt-2 align-self-end register-btn"
+                    onClick={() => window.location.href = "https://precisegoal.my-portfolio.co.in/app/#/public/signup/1"}
+                  >
+                    Click to Register
+                  </button>
+                )}
               </div>
             </div>
           </div>

@@ -3,6 +3,11 @@ import { Container, Form, Row, Col, Button, Card } from "react-bootstrap";
 import { Chart } from "react-google-charts";
 
 const SIPCalculator = () => {
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+    
   // Default values
   const [monthlyInvestment, setMonthlyInvestment] = useState(25000);
   const [investmentPeriod, setInvestmentPeriod] = useState(120);

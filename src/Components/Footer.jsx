@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import '../Components/styles.css';
 import Appstore from '../assets/pngegg.png';
 import Logo from '../assets/taglogo.png';
+import {Link}  from "react-router-dom";
 
 // Social Media Icons
 import FacebookIcon from '../assets/facebook.png';
@@ -38,12 +39,12 @@ const Footer = () => {
           <div className="col-6 col-md-3 mb-4">
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
-              <li><a href="/about" className="text-dark">About Us</a></li>
-              <li><a href="/service" className="text-dark">Services</a></li>
-              <li><a href="/sip-calculator" className="text-dark">SIP Calculator</a></li>
-              <li><a href="https://precisegoal.my-portfolio.co.in/app/#/public/signup/1" className="text-dark" target="_blank" rel="noopener noreferrer">Register</a></li>
-              <li><a href="/contact" className="text-dark">Contact Us</a></li>
-              <li><a href="https://goo.gl/maps/jajuu1CC7isDKxjy7" className="text-dark">Sitemap</a></li>
+              <li><Link  to="/about" className="text-dark">About Us</Link ></li>
+              <li><Link  to="/service" className="text-dark">Services</Link ></li>
+              <li><Link  to="/sip-calculator" className="text-dark">SIP Calculator</Link ></li>
+              <li><Link  to="https://precisegoal.my-portfolio.co.in/app/#/public/signup/1" className="text-dark" target="_blank" rel="noopener noreferrer">Register</Link ></li>
+              <li><Link  to="/contact" className="text-dark">Contact Us</Link ></li>
+              <li><Link  to="https://goo.gl/maps/jajuu1CC7isDKxjy7" className="text-dark">Sitemap</Link ></li>
             </ul>
           </div>
 
@@ -52,11 +53,11 @@ const Footer = () => {
           <div className="col-6 col-md-3 mb-4">
             <h5>Useful Links</h5>
             <ul className="list-unstyled">
-              <li><a href="/mutualfund" className="text-dark">MutualFund</a></li>
-              <li><a href="/insurance" className="text-dark">Insurance</a></li>
-              <li><a href="/disclaimer" className="text-dark">Disclaimer</a></li>
-              <li><a href="/privacypolicy" className="text-dark">Privacy Policy</a></li>
-              <li><a href="/terms&condition" className="text-dark">Terms & Conditions</a></li>
+              <li><Link  to="/mutualfund" className="text-dark">MutualFund</Link ></li>
+              <li><Link  to="/insurance" className="text-dark">Insurance</Link ></li>
+              <li><Link  to="/disclaimer" className="text-dark">Disclaimer</Link ></li>
+              <li><Link  to="/privacypolicy" className="text-dark">Privacy Policy</Link ></li>
+              <li><Link  to="/terms&condition" className="text-dark">Terms & Conditions</Link ></li>
             </ul>
           </div>
 
