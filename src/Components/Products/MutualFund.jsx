@@ -141,11 +141,22 @@
 // export default MutualFundsAnimated;
 
 import React, { useState, useEffect } from "react";
+import { Carousel } from "react-bootstrap";
 import { FaChartLine, FaListAlt, FaDollarSign, FaUserCheck, FaRocket, FaComments } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MutualFunds.css";
 import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
+import sideImage1 from "../../assets/Comic_1.png";
+import sideImage2 from "../../assets/Comic_2.png";
+import sideImage3 from "../../assets/Comic_3.jpg";
+import sideImage4 from "../../assets/Comic_4.png"; 
+import sideImage5 from "../../assets/Comic_5.png";
+import sideImage6 from "../../assets/Comic_6.png";
+import sideImage7 from "../../assets/Comic_7.png";
+// Array of images for the vertical carousel
+const carouselImages = [sideImage1, sideImage2, sideImage3,sideImage4,sideImage5,sideImage6,sideImage7];
+
 
 const content = [
   { icon: <FaChartLine />, title: "What is a Mutual Fund?", text: "A mutual fund is a collective investment vehicle where money from multiple investors is combined and invested in various assets like stocks, bonds, and other securities." },
@@ -179,15 +190,14 @@ const conversations = [
   { text: "Wow! Precise Goal really balances risk and returns.", person: "person1" },
   { text: "Yes! They help you invest wisely and achieve financial growth.", person: "person2" },
 ];
-
 const MutualFundsBootstrap = () => {
   const [visibleIndex, setVisibleIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPerson1, setIsPerson1] = useState(true);
-  
-   useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (visibleIndex < conversations.length) {
@@ -212,29 +222,45 @@ const MutualFundsBootstrap = () => {
 
   return (
     <div className="container py-5">
-      <h2 className="text-center mb-4" style={{ color: '#2A9D8F' }}>Mutual Funds</h2>
       <div className="row">
-        {content.map((item, index) => (
-          <div key={index} className="col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
-            <div className="card text-center p-3 mutual-card">
-              <div className="icon">{item.icon}</div>
-              <h5 className="mt-3">{item.title}</h5>
-              <div className="content">
-                <p className="text-muted">{item.text}</p>
-                {index === content.length - 2 && ( // Show button only on the last card
-                  <button
-                    className="btn mt-2 align-self-end register-btn"
-                    onClick={() => window.location.href = "https://precisegoal.my-portfolio.co.in/app/#/public/signup/1"}
-                  >
-                    Click to Register
-                  </button>
-                )}
+        <div className="col-lg-7 col-md-12">
+          <h2 className="text-center mb-4 text-primary">Mutual Funds</h2>
+          <div className="row">
+            {content.map((item, index) => (
+              <div key={index} className="col-lg-6 col-md-6 col-sm-12 mb-4">
+                <div className="card text-center p-3 mutual-card">
+                  <div className="icon">{item.icon}</div>
+                  <h5 className="mt-3">{item.title}</h5>
+                  <div className="content">
+                    <p className="text-muted">{item.text}</p>
+                    {index === content.length - 2 && (
+                      <button
+                        className="btn mt-2 register-btn"
+                        onClick={() =>
+                          (window.location.href = "https://precisegoal.my-portfolio.co.in/app/#/public/signup/1")
+                        }
+                      >
+                        Click to Register
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
 
+        {/* Vertical Image Carousel Section */}
+        <div className="col-lg-5 col-md-12 d-flex justify-content-center custom-margin">
+        <Carousel controls={false} indicators={false} interval={2000} fade className="vertical-carousel">
+            {carouselImages.map((image, index) => (
+              <Carousel.Item key={index}>
+                <img src={image} alt={`Slide ${index + 1}`} className="side-image d-block w-100" />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </div>
+      </div>
       {/* Chat Section */}
       <div className="chat-section mt-5">
         <h3 className="text-center">💬 Quick Talk</h3>
@@ -256,3 +282,4 @@ const MutualFundsBootstrap = () => {
 };
 
 export default MutualFundsBootstrap;
+

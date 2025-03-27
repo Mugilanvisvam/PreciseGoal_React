@@ -3,7 +3,7 @@
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  height: 100%; /* Ensures equal card height */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,6 +25,8 @@
 
 .mutual-card:hover {
   transform: scale(1.05);
+  background: linear-gradient(135deg, #48C774, #2A9D8F);
+  color: white; 
 }
 
 .mutual-card:hover .icon {
@@ -36,15 +38,45 @@
   height: auto;
 }
 
-.card {
-  transition: background 0.3s ease-in-out;
+.register-btn {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  transition: 0.3s ease-in-out;
 }
 
-.card:hover {
-  background: linear-gradient(135deg, #48C774, #2A9D8F);
-  color: white; 
+.register-btn:hover {
+  background-color: black;
+  color: white;
 }
 
+.side-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+  .side-image {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vertical-carousel {
+    max-height: 300px;
+  }
+
+  .side-image {
+    max-height: 300px;
+  }
+}
 .chat-section {
   max-width: 600px;
   margin: 30px auto;
@@ -106,20 +138,8 @@
     transform: translateY(0);
   }
 }
-
-.register-btn {
-  background-color: white; /* White background */
-  color: black; /* Black text */
-  border: 2px solid black; /* Black border */
-  padding: 8px 16px; /* Padding for better appearance */
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 20px; /* Rounded shape */
-  transition: 0.3s ease-in-out;
+@media (min-width: 992px) {
+  .custom-margin {
+    margin-top: 4%;
+  }
 }
-
-.register-btn:hover {
-  background-color: black;
-  color: white;
-}
-

@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/ff7.jpg"; // Import the image
+import logo from "../assets/covertop.jpg"; // Import the image
 import "../Components/styles.css";
 import { useNavigate } from "react-router-dom";
 
@@ -19,20 +19,20 @@ const HeroSection = () => {
       }}
     >
       {/* Dark Overlay for Better Readability */}
-      <div
+      {/* <div
         className="position-absolute top-0 start-0 w-100 h-100"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", zIndex: "1" }}
-      ></div>
+      ></div> */}
 
       {/* Content Container */}
       <div className="container position-relative" style={{ zIndex: "2" }}>
-        <div className="row justify-content-center text-center text-lg-start">
+        <div className="row  text-center text-lg-start">
           <div className="col-12 col-md-10 col-lg-6">
             <h1
               className="display-4 fw-bold mb-3 hero-heading"
               style={{
-                color: "white",
-                textShadow: "2px 2px 10px rgba(0,0,0,0.8)",
+                color: "black",
+                // textShadow: "2px 2px 10px rgba(0,0,0,0.8)",
               }}
             >
               To invest, the right way.
@@ -40,8 +40,8 @@ const HeroSection = () => {
             <p
               className="lead hero-text"
               style={{
-                color: "white",
-                textShadow: "1px 1px 5px rgba(0,0,0,0.7)",
+                color: "black",
+                // textShadow: "1px 1px 5px rgba(0,0,0,0.7)",
               }}
             >
               The approach to investing should be simple, clear, and
