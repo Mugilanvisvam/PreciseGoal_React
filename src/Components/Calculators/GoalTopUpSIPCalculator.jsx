@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Chart } from "react-google-charts";
-import "bootstrap/dist/css/bootstrap.min.css";
+import CalculatorLayout from "../../Constants/CalculatorLayout";
 
 const GoalTopUpSIPCalculator = () => {
   const [goalAmount, setGoalAmount] = useState(5000000);
@@ -9,81 +9,138 @@ const GoalTopUpSIPCalculator = () => {
   const [inflationRate, setInflationRate] = useState(5);
   const [sipTopUpRate, setSipTopUpRate] = useState(10);
 
-  const finalAmount = goalAmount * Math.pow(1 + inflationRate / 100, investmentYears);
-  
-  const sipAmountFirstYear = (finalAmount * (returnRate / 100)) / ((Math.pow(1 + returnRate / 100, investmentYears) - 1) / (returnRate / 100));
-  
+  // 🧮 Calculation Logic
+  const finalAmount =
+    goalAmount * Math.pow(1 + inflationRate / 100, investmentYears);
+
+  const sipAmountFirstYear =
+    (finalAmount * (returnRate / 100)) /
+    ((Math.pow(1 + returnRate / 100, investmentYears) - 1) /
+      (returnRate / 100));
+
   let totalSipInvestment = 0;
   let sipAmount = sipAmountFirstYear;
   for (let i = 0; i < investmentYears; i++) {
     totalSipInvestment += sipAmount * 12;
     sipAmount *= 1 + sipTopUpRate / 100;
   }
-  
+
   const totalGrowth = finalAmount - totalSipInvestment;
 
+  // 🎛 Input Controls
+  const inputControls = [
+    {
+      label: `Financial Goal (Rs): ${goalAmount}`,
+      value: goalAmount,
+      setValue: setGoalAmount,
+      type: "number",
+      range: true,
+      min: 100000,
+      max: 100000000,
+      step: 10000,
+    },
+    {
+      label: `Investment Period (Years): ${investmentYears}`,
+      value: investmentYears,
+      setValue: setInvestmentYears,
+      type: "number",
+      range: true,
+      min: 1,
+      max: 50,
+      step: 1,
+    },
+    {
+      label: `Expected Rate of Return (% p.a.): ${returnRate}`,
+      value: returnRate,
+      setValue: setReturnRate,
+      type: "number",
+      range: true,
+      min: 5,
+      max: 20,
+      step: 0.5,
+    },
+    {
+      label: `Inflation Rate (% p.a.): ${inflationRate}`,
+      value: inflationRate,
+      setValue: setInflationRate,
+      type: "number",
+      range: true,
+      min: 0,
+      max: 10,
+      step: 0.5,
+    },
+    {
+      label: `SIP Top-Up (% per annum): ${sipTopUpRate}`,
+      value: sipTopUpRate,
+      setValue: setSipTopUpRate,
+      type: "number",
+      range: true,
+      min: 0,
+      max: 20,
+      step: 1,
+    },
+  ];
+
+  // 📊 Charts
+  const charts = [
+    {
+      title: "Investment vs Growth",
+      component: (
+        <Chart
+          chartType="PieChart"
+          width="100%"
+          height="300px"
+          data={[
+            ["Category", "Amount"],
+            ["Amount Invested", totalSipInvestment],
+            ["Total Growth", totalGrowth],
+          ]}
+          options={{
+            pieHole: 0.4,
+            legend: { position: "bottom" },
+            colors: ["#1363a2", "#57C675"],
+          }}
+        />
+      ),
+    },
+  ];
+
+  // 📑 Results
+  const resultsArray = [
+    {
+      title: "Targeted Wealth Amount (Inflation adjusted)",
+      value: `Rs. ${finalAmount.toLocaleString()}`,
+    },
+    {
+      title: "Number of Years to Achieve Goal",
+      value: `${investmentYears} years`,
+    },
+    {
+      title: "Monthly SIP (First Year)",
+      value: `Rs. ${sipAmountFirstYear.toLocaleString()}`,
+    },
+    {
+      title: "Total Amount Invested",
+      value: `Rs. ${totalSipInvestment.toLocaleString()}`,
+    },
+    {
+      title: "Total Growth Amount",
+      value: `Rs. ${totalGrowth.toLocaleString()}`,
+    },
+    {
+      title: "Final Amount",
+      value: `Rs. ${finalAmount.toLocaleString()}`,
+    },
+  ];
+
   return (
-    <div className="container mt-4" style={{marginBottom:'2%'}}>
-      <h2 className="text-warning text-center">Goal-Based SIP Top-Up Calculator</h2>
-      <p className="text-center">Calculate your SIP with annual top-up to reach your financial goal.</p>
-
-      <div className="row">
-        <div className="col-md-4">
-          <div className="card p-3">
-            <h5 className="card-title text-primary">Adjust Your Inputs</h5>
-            <label>Your Financial Goal (Rs)</label>
-            <input type="text" className="form-control" value={goalAmount.toLocaleString()} readOnly />
-            <input type="range" className="form-range" min="100000" max="100000000" value={goalAmount} onChange={(e) => setGoalAmount(Number(e.target.value))} />
-
-            <label>Investment Period (Years)</label>
-            <input type="text" className="form-control" value={investmentYears} readOnly />
-            <input type="range" className="form-range" min="1" max="50" value={investmentYears} onChange={(e) => setInvestmentYears(Number(e.target.value))} />
-
-            <label>Expected Rate of Return (% per annum)</label>
-            <input type="text" className="form-control" value={returnRate} readOnly />
-            <input type="range" className="form-range" min="5" max="20" value={returnRate} onChange={(e) => setReturnRate(Number(e.target.value))} />
-
-            <label>Inflation Rate (% per annum)</label>
-            <input type="text" className="form-control" value={inflationRate} readOnly />
-            <input type="range" className="form-range" min="0" max="10" value={inflationRate} onChange={(e) => setInflationRate(Number(e.target.value))} />
-
-            <label>SIP Top-Up (% per annum)</label>
-            <input type="text" className="form-control" value={sipTopUpRate} readOnly />
-            <input type="range" className="form-range" min="0" max="20" value={sipTopUpRate} onChange={(e) => setSipTopUpRate(Number(e.target.value))} />
-          </div>
-        </div>
-
-        <div className="col-md-4">
-          <div className="card p-3">
-            <h5 className="card-title text-primary">Investment Breakdown</h5>
-            <Chart chartType="PieChart" width="100%" height="250px" data={[["Type", "Amount"], ["Amount Invested", totalSipInvestment], ["Total Growth", totalGrowth]]} options={{ pieHole: 0.4 }} />
-          </div>
-        </div>
-
-        <div className="col-md-4">
-          <div className="card p-3">
-            <h5 className="card-title text-primary">Results</h5>
-            <h6>Your Targeted Wealth Amount (Inflation adjusted)</h6>
-            <p className="fs-5 text-success">Rs. {finalAmount.toLocaleString()}</p>
-
-            <h6>Number of Years to Achieve Your Goal</h6>
-            <p className="fs-5 text-success">{investmentYears} years</p>
-
-            <h6>Monthly SIP Amount (For the First Year in Rs.)</h6>
-            <p className="fs-3 text-danger">Rs. {sipAmountFirstYear.toLocaleString()}</p>
-
-            <h6>Total Amount Invested in {investmentYears} years</h6>
-            <p className="fs-5 text-success">Rs. {totalSipInvestment.toLocaleString()}</p>
-
-            <h6>Total Growth Amount</h6>
-            <p className="fs-5 text-success">Rs. {totalGrowth.toLocaleString()}</p>
-
-            <h6>Final Amount</h6>
-            <p className="fs-5 text-success">Rs. {finalAmount.toLocaleString()}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CalculatorLayout
+      title="Goal-Based SIP Top-Up Calculator"
+      description="Calculate your SIP with annual top-up to reach your financial goal."
+      inputControls={inputControls}
+      charts={charts}
+      results={resultsArray}
+    />
   );
 };
 

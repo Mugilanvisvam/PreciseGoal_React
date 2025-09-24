@@ -12,15 +12,15 @@ const HumanLifeValueCalculator = () => {
   const lifeCover = cumulativeIncome + loanAmount;
 
   return (
-    <div className="container mt-4">
-      <h2 className="text-warning text-center">Human Life Value Calculator</h2>
+    <div className="container mt-4" style={{marginBottom:'50px'}}>
+      <h2 className="text-center" style={{color:'#1363a2'}}>Human Life Value Calculator</h2>
       <p className="text-center">Find out your ideal life cover based on your income and loans.</p>
 
       <div className="row">
         {/* Input Controls */}
         <div className="col-md-6">
           <div className="card p-3">
-            <h5 className="card-title text-primary">Adjust Your Inputs</h5>
+            <h5 className="card-title" style={{color:'#1363a2'}}>Adjust Your Inputs</h5>
             
             {/* Annual Income */}
             <label>Your Current Annual Income (Rs)</label>
@@ -108,21 +108,21 @@ const HumanLifeValueCalculator = () => {
         {/* Results */}
         <div className="col-md-6">
           <div className="card p-3">
-            <h5 className="card-title text-primary">Results</h5>
+            <h5 className="card-title" style={{color:'#1363a2'}}>Results</h5>
             <h6>Your Current Annual Income</h6>
-            <p className="fs-5 text-success">Rs. {annualIncome.toLocaleString()}</p>
+            <p className="fs-5 " style={{color:'#1363a2'}}>Rs. {annualIncome.toLocaleString()}</p>
             
             <h6>Expected Increase in Income (% per annum)</h6>
-            <p className="fs-5 text-success">{incomeIncreaseRate} %</p>
+            <p className="fs-5 " style={{color:'#1363a2'}}>{incomeIncreaseRate} %</p>
             
             <h6>Outstanding Loan Amount</h6>
-            <p className="fs-5 text-success">Rs. {loanAmount.toLocaleString()}</p>
+            <p className="fs-5 " style={{color:'#1363a2'}}>Rs. {loanAmount.toLocaleString()}</p>
             
             <h6>Cumulative Income Over Next {years} Years</h6>
-            <p className="fs-5 text-success">Rs. {cumulativeIncome.toLocaleString()}</p>
+            <p className="fs-5 " style={{color:'#1363a2'}}>Rs. {cumulativeIncome.toLocaleString()}</p>
             
             <h6>Your Ideal Life Cover</h6>
-            <p className="fs-3 text-danger">Rs. {lifeCover.toLocaleString()}</p>
+            <p className="fs-3 " style={{color:'#57C675'}}>Rs. {lifeCover.toLocaleString()}</p>
           </div>
         </div>
       </div>

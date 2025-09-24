@@ -22,7 +22,7 @@ const Footer = () => {
               <img src={Logo} alt="Logo" className="img-fluid" width="80" />
               <div className="d-flex flex-column" style={{ lineHeight: "1", marginLeft: "8px" }}>
                 <span className="fw-bold" style={{ color: "#1E2050", fontSize: "x-large" }}>PG ASSET</span>
-                <span style={{ color: "#3A858B", fontSize: "x-small" }}>Invest Precisely. Retire Wisely.</span>
+                <span style={{ color: "#3A858B", fontSize: "xx-small" }}>Invest Precisely. Retire Wisely.</span>
               </div>
             </div>
             <p>Connect with us:</p>

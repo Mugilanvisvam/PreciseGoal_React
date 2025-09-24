@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Chart } from "react-google-charts";
-import "bootstrap/dist/css/bootstrap.min.css";
+import CalculatorLayout from "../../Constants/CalculatorLayout";
 
 const CrorepatiCalculator = () => {
   const [wealthAmount, setWealthAmount] = useState(500000000);
@@ -11,8 +11,7 @@ const CrorepatiCalculator = () => {
   const [savings, setSavings] = useState(500000);
 
   const yearsToSave = targetAge - currentAge;
-  const finalAmount =
-    wealthAmount * Math.pow(1 + inflationRate / 100, yearsToSave);
+  const finalAmount = wealthAmount * Math.pow(1 + inflationRate / 100, yearsToSave);
   const growthSavings = savings * Math.pow(1 + returnRate / 100, yearsToSave);
   const sipInvestment =
     (finalAmount - growthSavings) /
@@ -21,156 +20,60 @@ const CrorepatiCalculator = () => {
   const totalSipInvestment = sipInvestment * 12 * yearsToSave; // Total SIP invested over years
   const totalGrowth = finalAmount - totalSipInvestment; // Growth of the total invested amount
 
+  // Input controls
+  const inputControls = [
+    { label: "Desired Wealth (Rs)", value: wealthAmount, setValue: setWealthAmount, min: 10000000, max: 1000000000, step: 1000000 },
+    { label: "Current Age", value: currentAge, setValue: setCurrentAge, min: 10, max: 100, step: 1 },
+    { label: "Target Age", value: targetAge, setValue: setTargetAge, min: 10, max: 100, step: 1 },
+    { label: "Inflation Rate (%)", value: inflationRate, setValue: setInflationRate, min: 0, max: 10, step: 0.1 },
+    { label: "Expected Return Rate (%)", value: returnRate, setValue: setReturnRate, min: 5, max: 20, step: 0.1 },
+    { label: "Current Savings (Rs)", value: savings, setValue: setSavings, min: 0, max: 10000000, step: 10000 },
+  ];
+
+  // Charts
+  const charts = [
+    {
+      title: "Investment Breakdown",
+      component: (
+        <Chart
+          chartType="PieChart"
+          width="100%"
+          height="300px"
+          data={[
+            ["Category", "Amount"],
+            ["Invested", totalSipInvestment],
+            ["Growth", totalGrowth],
+          ]}
+          options={{
+            pieHole: 0.4,
+            slices: { 0: { color: "#0f8b8b" }, 1: { color: "#57C675" } },
+            chartArea: { width: "90%", height: "80%" },
+            legend: { position: "bottom", alignment: "center", textStyle: { fontSize: 12 } },
+          }}
+        />
+      ),
+    },
+  ];
+
+  // Results
+  const resultItems = [
+    { title: "Targeted Wealth Amount (Inflation Adjusted)", value: finalAmount },
+    { title: "Growth of Your Savings Amount", value: growthSavings },
+    { title: "Final Targeted Amount (Minus Savings Growth)", value: finalAmount - growthSavings },
+    { title: "Number of Years You Need to Save", value: yearsToSave },
+    { title: "Monthly SIP Investment Required", value: sipInvestment },
+    { title: "Total SIP Investment", value: totalSipInvestment },
+    { title: "Total Growth Amount", value: totalGrowth },
+  ];
+
   return (
-    <div className="container mt-4">
-      <h2 className="text-warning text-center">Become A Crorepati Calculator</h2>
-      <p className="text-center">
-        Calculate how much you need to save monthly to become a crorepati.
-      </p>
-
-      <div className="row">
-        {/* Input Controls Card */}
-        <div className="col-md-4">
-          <div className="card p-3">
-            <h5 className="card-title text-primary">Adjust Your Inputs</h5>
-            <label>Desired Wealth (Rs)</label>
-            <input
-              type="text"
-              className="form-control"
-              value={wealthAmount.toLocaleString()}
-              readOnly
-            />
-            <input
-              type="range"
-              className="form-range"
-              min="10000000"
-              max="1000000000"
-              value={wealthAmount}
-              onChange={(e) => setWealthAmount(Number(e.target.value))}
-            />
-
-            <label>Current Age</label>
-            <input
-              type="text"
-              className="form-control"
-              value={currentAge}
-              readOnly
-            />
-            <input
-              type="range"
-              className="form-range"
-              min="10"
-              max="100"
-              value={currentAge}
-              onChange={(e) => setCurrentAge(Number(e.target.value))}
-            />
-
-            <label>Target Age</label>
-            <input
-              type="text"
-              className="form-control"
-              value={targetAge}
-              readOnly
-            />
-            <input
-              type="range"
-              className="form-range"
-              min="10"
-              max="100"
-              value={targetAge}
-              onChange={(e) => setTargetAge(Number(e.target.value))}
-            />
-
-            <label>Inflation Rate (%)</label>
-            <input
-              type="text"
-              className="form-control"
-              value={inflationRate}
-              readOnly
-            />
-            <input
-              type="range"
-              className="form-range"
-              min="0"
-              max="10"
-              value={inflationRate}
-              onChange={(e) => setInflationRate(Number(e.target.value))}
-            />
-
-            <label>Expected Return Rate (%)</label>
-            <input
-              type="text"
-              className="form-control"
-              value={returnRate}
-              readOnly
-            />
-            <input
-              type="range"
-              className="form-range"
-              min="5"
-              max="20"
-              value={returnRate}
-              onChange={(e) => setReturnRate(Number(e.target.value))}
-            />
-          </div>
-        </div>
-
-        {/* Pie Chart Card */}
-        <div className="col-md-4">
-  <div className="card p-3">
-    <h5 className="card-title text-primary">Investment Breakdown</h5>
-    <Chart
-      chartType="PieChart"
-      width="100%"
-      height="300px" // Match Target Amount SIP Calculator height
-      data={[
-        ["Category", "Amount"],
-        ["Invested", totalSipInvestment], // Shorter labels for consistency
-        ["Growth", totalGrowth],
-      ]}
-      options={{
-        pieHole: 0.4,
-        legend: {
-          position: "bottom", // Moves legend below the chart
-          alignment: "center",
-          textStyle: { fontSize: 14 }, // Adjust font size for clarity
-        },
-        chartArea: { width: "90%", height: "80%" }, // Expands the chart
-        tooltip: { showColorCode: true }, // Enables tooltips
-      }}
+    <CalculatorLayout
+      title="Become A Crorepati Calculator"
+      description="Calculate how much you need to save monthly to become a crorepati."
+      inputControls={inputControls}
+      charts={charts}
+      results={resultItems}
     />
-  </div>
-</div>
-
-
-        {/* Results Card */}
-        <div className="col-md-4">
-          <div className="card p-3">
-            <h5 className="card-title text-primary">Results</h5>
-            <h6>Your Targeted Wealth Amount (Inflation adjusted)</h6>
-            <p className="fs-5 text-success">Rs. {finalAmount.toLocaleString()}</p>
-
-            <h6>Growth of Your Savings Amount (12.5% per annum)</h6>
-            <p className="fs-5 text-success">Rs. {growthSavings.toLocaleString()}</p>
-
-            <h6>Final Targeted Amount (Minus growth of your savings amount)</h6>
-            <p className="fs-5 text-success">Rs. {(finalAmount - growthSavings).toLocaleString()}</p>
-
-            <h6>Number of Years You Need to Save</h6>
-            <p className="fs-5 text-success">{yearsToSave} years</p>
-
-            <h6>Monthly SIP Investment Required to Become Crorepati</h6>
-            <p className="fs-3 text-danger">Rs. {sipInvestment.toLocaleString()}</p>
-
-            <h6>Total Amount Invested through SIP in {yearsToSave} years</h6>
-            <p className="fs-5 text-success">Rs. {totalSipInvestment.toLocaleString()}</p>
-
-            <h6>Total Growth Amount</h6>
-            <p className="fs-5 text-success">Rs. {totalGrowth.toLocaleString()}</p>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 };
 

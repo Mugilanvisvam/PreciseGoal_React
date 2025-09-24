@@ -55,7 +55,7 @@ const HeroSection = () => {
               <button className="btn animated-btn" onClick={() => navigate("/mutualfund")}>
                 Mutual Fund
               </button>
-              <button className="btn animated-btn" onClick={() => navigate("/insurance")}>
+              <button className="btn animated-btn" disabled onClick={() => navigate("/insurance")}>
                 Insurance
               </button>
             </div>

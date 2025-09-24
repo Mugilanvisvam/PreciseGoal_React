@@ -58,8 +58,8 @@ const SpendingLessCalculator = () => {
     };
 
     return (
-        <div className="container mt-5 p-4 bg-white rounded shadow-lg">
-            <h2 className="text-center text-warning mb-4">💰 Spending Less Calculator</h2>
+        <div className="container mt-5 p-4 bg-white rounded shadow-lg" style={{marginBottom:'50px'}}>
+            <h2 className="text-center mb-4" style={{color:'#1363a2'}}>Spending Less Calculator</h2>
             <div className="row">
 
                 {/* Left Column - Personal & Spending Details */}
@@ -134,7 +134,7 @@ const SpendingLessCalculator = () => {
                         <hr className="w-100" />
 
                         <div className="card p-4 shadow-lg border-0 rounded-4 text-center bg-light">
-                            <h4 className="mb-3 text-primary fw-bold">🎯 Your Savings Summary</h4>
+                            <h4 className="mb-3  fw-bold" style={{color:'#1363a2'}}>🎯 Your Savings Summary</h4>
 
                             <div className="p-3 bg-white rounded-3 shadow-sm">
                                 <h6 className="text-success mb-1">💰 Annual Savings</h6>

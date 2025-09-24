@@ -143,3 +143,9 @@
     margin-top: 4%;
   }
 }
+
+.list-group-item.active-item {
+  background-color: #57C675 !important;
+  border-color: #57C675 !important;
+  color: #fff !important; /* ensure text is readable */
+}

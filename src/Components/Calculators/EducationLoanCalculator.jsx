@@ -72,7 +72,7 @@ const EducationLoanCalculator = () => {
     return (
         <div className="container mt-4">
             <div className="card p-4">
-                <h4 className="mb-3 text-warning text-center">Education Loan Calculator</h4>
+                <h4 className="mb-3 text text-center" style={{ color: '#007bff' }}>Education Loan Calculator</h4>
                 <div className="row">
                     {/* Input Controls */}
                     <div className="col-md-6">
@@ -93,7 +93,7 @@ const EducationLoanCalculator = () => {
                     {/* Pie Chart */}
                     <div className="col-md-6 d-flex justify-content-center">
                         <Chart chartType="PieChart" data={pieData} width="100%" height="400px"
-                            options={{ pieHole: 0.4, fontSize: 14, legend: { position: "bottom" } }} />
+                            options={{ pieHole: 0.4, fontSize: 14, legend: { position: "bottom" }, slices: { 0: { color: "#007bff" }, 1: { color: "#57C675" } }, }} />
                     </div>
                 </div>
 
@@ -110,15 +110,15 @@ const EducationLoanCalculator = () => {
                 </div>
 
                 {/* EMI Growth Chart */}
-                <div className="row mt-4">
+                {/* <div className="row mt-4">
                     <div className="col-md-12">
                         <Chart chartType="LineChart" data={emiGrowthData} width="100%" height="400px"
                             options={{ title: "EMI Growth Over Time", curveType: "function", legend: { position: "bottom" } }} />
                     </div>
-                </div>
+                </div> */}
 
                 {/* Loan Repayment Schedule Table */}
-                <h4 className="mt-4 text-warning">Loan Repayment Schedule</h4>
+                <h4 className="mt-4 text" style={{ color: '#007bff' }}>Loan Repayment Schedule</h4>
                 <div className="table-responsive">
                     <table className="table table-bordered text-center">
                         <thead className="table-dark">

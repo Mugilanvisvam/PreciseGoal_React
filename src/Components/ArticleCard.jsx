@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Mutualfund from "../assets/mutualfund.jpg";
 import Insurance from "../assets/insurance.jpg";
-import Loan from "../assets/loans.jpg";
+import Equity from "../assets/Equity.jpg";
 import StructuredProduct from "../assets/structuredProduct.jpg";
 import "../Components/styles.css";
 
@@ -23,17 +23,10 @@ const articles = [
   },
   {
     id: 3,
-    image: Loan,
-    title: "Loan",
+    image: Equity,
+    title: "Equity",
     description:
-      "A loan is an amount of money that a bank or non-banking financial corporation (NBFC) gives...",
-  },
-  {
-    id: 4,
-    image: StructuredProduct,
-    title: "Structured Products",
-    description:
-      "Structured products are a type of financial instrument that depend on market performance...",
+      "At PG Asset, we help you identify the right equity opportunities that align with your financial goals, risk tolerance, and time horizon.",
   },
 ];
 
@@ -45,9 +38,9 @@ const ArticleCard = () => {
         All our product offerings are customer-centric to meet our client’s specific needs. Our products include:
       </p>
 
-      <div className="row">
+      <div className="row justify-content-center" >
         {articles.map((article) => (
-          <div key={article.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div key={article.id} className="col-12 col-sm-6 col-md-3 col-lg-3 mb-4">
             {/* Responsive grid: 1 per row (xs), 2 per row (sm), 3 (md), 4 (lg) */}
             <div className="card shadow border-0 h-100 article-card">
               <div className="card-img-wrapper">

@@ -1,0 +1,29 @@
+.sidebar {
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.sidebar h5 {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.sidebar ul li {
+  margin-bottom: 8px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #1363a2;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #57C675;
+}
+
+.sidebar ul li.active a {
+  font-weight: 600;
+  color: #57C675;
+}

@@ -44,7 +44,7 @@ const About = () => {
           <Card className="architect-card shadow">
             <Card.Body>
               <Card.Title className="architect-name">N.M. Hema Raju</Card.Title>
-              <Card.Subtitle className="architect-role">Partner</Card.Subtitle>
+              <Card.Subtitle className="architect-role">Investment Counsellor</Card.Subtitle>
               <Card.Text className="architect-text">
                 A Wealth Manager turned Life Coach with 13 years of experience in financial markets. Worked with top banking firms like Kotak Securities and ICICI Securities, helping clients align their wealth strategy with financial success.
               </Card.Text>

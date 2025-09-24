@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Chart } from "react-google-charts";
-import "bootstrap/dist/css/bootstrap.min.css";
+import CalculatorLayout from "../../Constants/CalculatorLayout";
 
 const CompositeGoalPlanner = () => {
   const [educationCost, setEducationCost] = useState(2500000);
@@ -30,90 +30,78 @@ const CompositeGoalPlanner = () => {
       (Math.pow(1 + returnRate / 100 / 12, Math.max(yearsToEducation, yearsToWealth, expenseYears) * 12) - 1);
 
     return {
-      futureEducationCost: futureEducationCost.toFixed(2),
-      futureWealthCost: futureWealthCost.toFixed(2),
-      futureDreamExpense: futureDreamExpense.toFixed(2),
-      totalFutureAmount: totalFutureAmount.toFixed(2),
-      savingsGrowth: savingsGrowth.toFixed(2),
-      finalAmountNeeded: finalAmountNeeded.toFixed(2),
-      monthlyInvestment: monthlyInvestment.toFixed(2)
+      futureEducationCost,
+      futureWealthCost,
+      futureDreamExpense,
+      totalFutureAmount,
+      savingsGrowth,
+      finalAmountNeeded,
+      monthlyInvestment
     };
   };
 
   const results = calculateGoal();
-  const data = [
-    ["Category", "Amount"],
-    ["Education", parseFloat(results.futureEducationCost)],
-    ["Wealth", parseFloat(results.futureWealthCost)],
-    ["Expenses", parseFloat(results.futureDreamExpense)]
+
+  // Input Controls
+  const inputControls = [
+    { label: "Education Cost", value: educationCost, setValue: setEducationCost, min: 100000, max: 10000000 },
+    { label: "Wealth Cost", value: wealthCost, setValue: setWealthCost, min: 100000, max: 10000000 },
+    { label: "Dream Expense", value: dreamExpense, setValue: setDreamExpense, min: 100000, max: 10000000 },
+    { label: "Current Age", value: currentAge, setValue: setCurrentAge, min: 10, max: 100 },
+    { label: "Wealth Age", value: wealthAge, setValue: setWealthAge, min: 10, max: 100 },
+    { label: "Child Age", value: childAge, setValue: setChildAge, min: 0, max: 100 },
+    { label: "Education Age", value: educationAge, setValue: setEducationAge, min: 0, max: 100 },
+    { label: "Years to Expense", value: expenseYears, setValue: setExpenseYears, min: 1, max: 100 },
+    { label: "Inflation Rate (%)", value: inflationRate, setValue: setInflationRate, min: 5, max: 15, step: 0.1 },
+    { label: "Return Rate (%)", value: returnRate, setValue: setReturnRate, min: 5, max: 20, step: 0.1 },
+    { label: "Current Savings", value: currentSavings, setValue: setCurrentSavings, min: 0, max: 10000000 },
+  ];
+
+  // Charts
+  const charts = [
+    {
+      title: "Financial Goal Distribution",
+      component: (
+        <Chart
+          chartType="PieChart"
+          width="100%"
+          height="300px"
+          data={[
+            ["Category", "Amount"],
+            ["Education", results.futureEducationCost],
+            ["Wealth", results.futureWealthCost],
+            ["Expenses", results.futureDreamExpense]
+          ]}
+          options={{
+            pieHole: 0.4,
+            colors: ["#1363a2", "#57C675", "red"],
+            legend: { position: "bottom", textStyle: { fontSize: 12 } },
+            chartArea: { width: "90%", height: "80%" },
+          }}
+        />
+      )
+    }
+  ];
+
+  // Results
+  const resultItems = [
+    { title: "🎓 Education (Inflation Adjusted)", value: results.futureEducationCost },
+    { title: "💰 Wealth (Inflation Adjusted)", value: results.futureWealthCost },
+    { title: "🌍 Expenses (Inflation Adjusted)", value: results.futureDreamExpense },
+    { title: "Total Future Amount", value: results.totalFutureAmount },
+    { title: "Expected Growth of Current Savings", value: results.savingsGrowth },
+    { title: "Final Target Amount Needed", value: results.finalAmountNeeded },
+    { title: "Monthly Savings Required", value: results.monthlyInvestment },
   ];
 
   return (
-    <div className="container mt-5 p-4 bg-white rounded shadow-lg">
-      <h2 className="text-center text-warning mb-4">📊 Composite Financial Goal Planner</h2>
-
-      <div className="row">
-        {/* Left Column: Form Inputs */}
-        <div className="col-md-6">
-          <div className="card p-3 mb-3">
-            <h4>🎯 Financial Inputs</h4>
-            {[
-              { label: "Education Cost", value: educationCost, setter: setEducationCost, min: 100000, max: 10000000 },
-              { label: "Wealth Cost", value: wealthCost, setter: setWealthCost, min: 100000, max: 10000000 },
-              { label: "Dream Expense", value: dreamExpense, setter: setDreamExpense, min: 100000, max: 10000000 },
-              { label: "Current Age", value: currentAge, setter: setCurrentAge, min: 10, max: 100 },
-              { label: "Wealth Age", value: wealthAge, setter: setWealthAge, min: 10, max: 100 },
-              { label: "Child Age", value: childAge, setter: setChildAge, min: 0, max: 100 },
-              { label: "Education Age", value: educationAge, setter: setEducationAge, min: 0, max: 100 },
-              { label: "Years to Expense", value: expenseYears, setter: setExpenseYears, min: 1, max: 100 },
-              { label: "Inflation Rate", value: inflationRate, setter: setInflationRate, min: 5, max: 15 },
-              { label: "Return Rate", value: returnRate, setter: setReturnRate, min: 5, max: 20 },
-              { label: "Current Savings", value: currentSavings, setter: setCurrentSavings, min: 0, max: 10000000 }
-            ].map(({ label, value, setter, min, max }) => (
-              <div key={label} className="mb-2">
-                <label className="form-label">{label}: Rs. {value}</label>
-                <input type="range" className="form-range" min={min} max={max} value={value} onChange={(e) => setter(Number(e.target.value))} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Column: Chart & Details */}
-        <div className="col-md-6">
-          {/* Pie Chart */}
-          <div className="card p-3 mb-3">
-            <h5>📊 Financial Goal Distribution</h5>
-            <Chart
-              chartType="PieChart"
-              width="100%"
-              height="300px"
-              data={data}
-              options={{
-                pieHole: 0.4,
-                slices: { 0: { color: "#007bff" }, 1: { color: "#28a745" }, 2: { color: "#ffc107" } },
-              }}
-            />
-          </div>
-
-          {/* Targeted Amount (Inflation Adjusted) */}
-          <div className="card p-3 mb-3">
-            <h5>🎯 Targeted Amount (Inflation Adjusted)</h5>
-            <p>🎓 Education: Rs. {results.futureEducationCost}</p>
-            <p>💰 Wealth: Rs. {results.futureWealthCost}</p>
-            <p>🌍 Expenses: Rs. {results.futureDreamExpense}</p>
-            <p><strong>Total Future Amount:</strong> Rs. {results.totalFutureAmount}</p>
-          </div>
-
-          {/* Investment Details */}
-          <div className="card p-3">
-            <h5>💰 Investment Details</h5>
-            <p>📈 Expected Growth of Current Savings: Rs. {results.savingsGrowth}</p>
-            <p>🎯 Final Target Amount Needed: Rs. {results.finalAmountNeeded}</p>
-            <p>💳 Monthly Savings Required: Rs. {results.monthlyInvestment}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CalculatorLayout
+      title="Composite Financial Goal Planner"
+      description="Plan your education, wealth, and dream expenses and find the required monthly savings to reach your financial goals."
+      inputControls={inputControls}
+      charts={charts}
+      results={resultItems}
+    />
   );
 };
 

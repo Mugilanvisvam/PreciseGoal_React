@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import logo from "../assets/taglogo.png";
+// import logo from "../assets/taglogo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Components/styles.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/pglogo.png"; // ✅ use the new logo
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -18,7 +19,7 @@ const Header = () => {
 
   const companySubmenus = [
     { name: "About Us", path: "/about" },
-    { name: "Service", path: "/service" },
+    // { name: "Service", path: "/service" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -93,12 +94,13 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-white py-2">
       <div className="container d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center">
-          <Link to="/" className="navbar-brand d-flex align-items-center">
-            <img src={logo} alt="Precise Logo" style={{ width: "60px", height: "auto", marginRight: "10px" }} />
-            <div className="d-flex flex-column" style={{ lineHeight: "1" }}>
-              <span className="fw-bold" style={{ color: "#1E2050", fontSize: "x-large" }}>PG ASSET</span>
-              <span style={{ color: "#3A858B", fontSize: "x-small" }}>Invest Precisely. Retire Wisely.</span>
-            </div>
+         <Link to="/" className="navbar-brand d-flex align-items-center">
+            {/* ✅ Only the logo */}
+            <img
+              src={logo}
+              alt="PG Asset Logo"
+              style={{ width: "180px", height: "auto" }}
+            />
           </Link>
         </div>
 
@@ -115,7 +117,13 @@ const Header = () => {
               <Link to="/mutualfund" className={`nav-link ${location.pathname === "/mutualfund" ? "active text-dark fw-bold" : ""}`}>Mutual Fund</Link>
             </li>
             <li className="nav-item">
-              <Link to="/insurance" className={`nav-link ${location.pathname === "/insurance" ? "active text-dark fw-bold" : ""}`}>Insurance</Link>
+              <Link to="/equity" className={`nav-link ${location.pathname === "/equity" ? "active text-dark fw-bold" : ""}`}>Equity</Link>
+            </li>
+            <li className="nav-item" >
+              <Link to="/insurance" className={`nav-link disabled-link ${location.pathname === "/insurance" ? "active text-dark fw-bold" : ""}`}>Insurance</Link>
+            </li>
+            <li className="nav-item" >
+              <Link to="/service" className={`nav-link  ${location.pathname === "/service" ? "active text-dark fw-bold" : ""}`}>Service</Link>
             </li>
 
             {/* Calculators Dropdown */}
@@ -141,7 +149,7 @@ const Header = () => {
                     flexWrap: "wrap",
                     minWidth: "700px",
                     maxWidth: "1200px",
-                    right:0,
+                    right: 0,
                     justifyContent: "space-between"
                   }}
                 >
@@ -174,8 +182,8 @@ const Header = () => {
               )}
             </li>
 
-{/* Company Dropdown */}
-<li className="nav-item dropdown" ref={dropdownRef} onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
+            {/* Company Dropdown */}
+            <li className="nav-item dropdown" ref={dropdownRef} onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
               <a
                 href="#company"
                 className={`nav-link dropdown-toggle ${showDropdown || activeSubmenu ? "active text-dark fw-bold" : ""}`}
@@ -203,7 +211,7 @@ const Header = () => {
                 </ul>
               )}
             </li>
-{/* 
+            {/* 
             <li className="nav-item"><Link to="/about" className={`nav-link ${location.pathname === "/about" ? "active text-dark fw-bold" : ""}`}>About Us</Link></li>
             <li className="nav-item"><Link to="/service" className={`nav-link ${location.pathname === "/service" ? "active text-dark fw-bold" : ""}`}>Services</Link></li>
             <li className="nav-item"><Link to="/contact" className={`nav-link ${location.pathname === "/contact" ? "active text-dark fw-bold" : ""}`}>Contact Us</Link></li> */}

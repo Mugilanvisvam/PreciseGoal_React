@@ -8,6 +8,7 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Services from './Pages/Services';
 import MutualFund from './Components/Products/MutualFund';
+import Equity from './Components/Products/Equity';
 import Insurance from './Components/Products/Insurance';
 import Loan from './Components/Products/Loan';
 import StructuredProduct from './Components/Products/StructuredProduct';
@@ -55,6 +56,7 @@ function App() {
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/terms&condition" element={<TermsAndConditions />} />
           <Route path="/mutualfund" element={<MutualFund />} />
+          <Route path="/equity" element={<Equity />} />
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/loan" element={<Loan />} />
           <Route path="/structuredproducts" element={<StructuredProduct />} />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Chart } from "react-google-charts";
-import "bootstrap/dist/css/bootstrap.min.css";
+import CalculatorLayout from "../../Constants/CalculatorLayout";
 
 const AssetAllocationCalculator = () => {
   const ageRanges = ["21-30yrs", "31-45yrs", "40-60yrs", ">60yrs"];
@@ -24,55 +24,87 @@ const AssetAllocationCalculator = () => {
     ["Large-Caps", 47],
   ];
 
-  return (
-    <div className="container mt-4">
-      <div className="card p-4" style={{marginBottom:'2%'}}>
-        <h4 className="mb-3 text-center text-warning">Asset Allocation Calculator</h4>
-        <div className="row">
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label">Your Current Age (Years)</label>
-              <input type="range" className="form-range" min="0" max="3" step="1" 
-                     value={ageIndex} onChange={(e) => setAgeIndex(e.target.value)} />
-              <input type="text" className="form-control mt-2" value={ageRanges[ageIndex]} readOnly />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">How much risk you can take?</label>
-              <input type="range" className="form-range" min="0" max="4" step="1" 
-                     value={riskIndex} onChange={(e) => setRiskIndex(e.target.value)} />
-              <input type="text" className="form-control mt-2" value={riskLevels[riskIndex]} readOnly />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Your Investment Horizon (Years)</label>
-              <input type="range" className="form-range" min="0" max="3" step="1" 
-                     value={horizonIndex} onChange={(e) => setHorizonIndex(e.target.value)} />
-              <input type="text" className="form-control mt-2" value={investmentHorizon[horizonIndex]} readOnly />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Do you know that mid & small caps generate better return in long term?</label>
-              <input type="range" className="form-range" min="0" max="2" step="1" 
-                     value={returnsIndex} onChange={(e) => setReturnsIndex(e.target.value)} />
-              <input type="text" className="form-control mt-2" value={returnPreferences[returnsIndex]} readOnly />
-            </div>
-          </div>
-          <div className="col-md-6 d-flex justify-content-center">
-  <Chart
-    chartType="PieChart"
-    data={assetData}
-    width="100%"
-    height="400px" // Increased height for better visibility
-    options={{
-      pieHole: 0.4, // Makes it look like a donut chart (optional)
-      fontSize: 14,
-      legend: { position: "bottom", textStyle: { fontSize: 10 } }, // Bigger legend
-      chartArea: { width: "90%", height: "80%" }, // Expands chart area
-    }}
-  />
-</div>
+  // Input Controls
+  const inputControls = [
+    {
+      label: "Your Current Age (Years)",
+      value: ageIndex,
+      setValue: setAgeIndex,
+      min: 0,
+      max: 3,
+      range: true,
+      step: 1,
+      displayValue: ageRanges[ageIndex],
+    },
+    {
+      label: "How much risk you can take?",
+      value: riskIndex,
+      setValue: setRiskIndex,
+      min: 0,
+      max: 4,
+      range: true,
+      step: 1,
+      displayValue: riskLevels[riskIndex],
+    },
+    {
+      label: "Your Investment Horizon (Years)",
+      value: horizonIndex,
+      setValue: setHorizonIndex,
+      min: 0,
+      max: 3,
+      range: true,
+      step: 1,
+      displayValue: investmentHorizon[horizonIndex],
+    },
+    {
+      label: "Do you know that mid & small caps generate better return in long term?",
+      value: returnsIndex,
+      setValue: setReturnsIndex,
+      min: 0,
+      max: 2,
+      range: true,
+      step: 1,
+      displayValue: returnPreferences[returnsIndex],
+    },
+  ];
 
-        </div>
-      </div>
-    </div>
+  // Charts
+  const charts = [
+    {
+      title: "Suggested Asset Allocation",
+      component: (
+        <Chart
+          chartType="PieChart"
+          width="100%"
+          height="300px"
+          data={assetData}
+          options={{
+            pieHole: 0.4,
+            colors: ["#1363a2", "#57C675", "#1363a2", "#57C675", "#1363a2", "#57C675", "#1363a2"],
+            legend: { position: "bottom", textStyle: { fontSize: 12 } },
+            chartArea: { width: "90%", height: "80%" },
+          }}
+        />
+      ),
+    },
+  ];
+
+  // Results (you can expand these as needed)
+  const results = [
+    { title: "Debt Allocation", value: "45%" },
+    { title: "Equity Allocation", value: "55%" },
+    { title: "Mid & Small Cap", value: "8%" },
+    { title: "Large Cap", value: "47%" },
+  ];
+
+  return (
+    <CalculatorLayout
+      title="Asset Allocation Calculator"
+      description="Calculate your suggested asset allocation based on your age, risk appetite, and investment horizon."
+      inputControls={inputControls}
+      charts={charts}
+      results={results}
+    />
   );
 };
 

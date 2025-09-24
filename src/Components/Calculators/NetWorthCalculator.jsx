@@ -1,117 +1,93 @@
 import React, { useState } from "react";
 import { Chart } from "react-google-charts";
-import "bootstrap/dist/css/bootstrap.min.css";
+import CalculatorLayout from "../../Constants/CalculatorLayout";
 
 const NetWorthCalculator = () => {
-    const [assets, setAssets] = useState({
-        shares: 500000,
-        fixedIncome: 200000,
-        cashBank: 300000,
-        property: 200000,
-        goldJewellery: 200000,
-        others: 200000,
-    });
+  const [assets, setAssets] = useState({
+    shares: 500000,
+    fixedIncome: 200000,
+    cashBank: 300000,
+    property: 200000,
+    goldJewellery: 200000,
+    others: 200000,
+  });
 
-    const [liabilities, setLiabilities] = useState({
-        homeLoan: 50000,
-        personalLoans: 250000,
-        incomeTax: 200000,
-        outstandingBills: 500000,
-        creditCardDues: 200000,
-        otherLiabilities: 20000,
-    });
+  const [liabilities, setLiabilities] = useState({
+    homeLoan: 50000,
+    personalLoans: 250000,
+    incomeTax: 200000,
+    outstandingBills: 500000,
+    creditCardDues: 200000,
+    otherLiabilities: 20000,
+  });
 
-    const totalAssets = Object.values(assets).reduce((a, b) => a + b, 0);
-    const totalLiabilities = Object.values(liabilities).reduce((a, b) => a + b, 0);
-    const netWorth = totalAssets - totalLiabilities;
+  const totalAssets = Object.values(assets).reduce((a, b) => a + b, 0);
+  const totalLiabilities = Object.values(liabilities).reduce((a, b) => a + b, 0);
+  const netWorth = totalAssets - totalLiabilities;
 
-    const data = [
-        ["Category", "Amount"],
-        ["Total Assets", totalAssets],
-        ["Total Liabilities", totalLiabilities],
-    ];
+  // Input Controls
+  const inputControls = [
+    ...Object.keys(assets).map((key) => ({
+      label: `Asset: ${key.replace(/([A-Z])/g, " $1")}`,
+      value: assets[key],
+      setValue: (val) => setAssets({ ...assets, [key]: val }),
+      min: 0,
+      max: 10000000,
+      step: 10000,
+      range: true,
+    })),
+    ...Object.keys(liabilities).map((key) => ({
+      label: `Liability: ${key.replace(/([A-Z])/g, " $1")}`,
+      value: liabilities[key],
+      setValue: (val) => setLiabilities({ ...liabilities, [key]: val }),
+      min: 0,
+      max: 5000000,
+      step: 10000,
+      range: true,
+    })),
+  ];
 
-    const handleInputChange = (e, type, key) => {
-        const value = Number(e.target.value) || 0;
-        if (type === "assets") {
-            setAssets({ ...assets, [key]: value });
-        } else {
-            setLiabilities({ ...liabilities, [key]: value });
-        }
-    };
+  // Chart
+  const charts = [
+    {
+      title: "Assets vs Liabilities",
+      component: (
+        <Chart
+          chartType="PieChart"
+          width="100%"
+          height="300px"
+          data={[
+            ["Category", "Amount"],
+            ["Total Assets", totalAssets],
+            ["Total Liabilities", totalLiabilities],
+          ]}
+          options={{
+            pieHole: 0.4,
+            colors: ["#1363a2", "#57C675"],
+            legend: { position: "bottom" },
+            chartArea: { width: "90%", height: "80%" },
+          }}
+        />
+      ),
+    },
+  ];
 
-    return (
-        <div className="container mt-5 p-4 bg-white rounded shadow-lg">
-            <h2 className="text-center text-warning mb-4">💰 Net Worth Calculator</h2>
-            <div className="row">
-                <div className="col-md-6">
-                    <div className="card p-3 mb-3">
-                        <h5>Assets</h5>
-                        {Object.entries(assets).map(([key, value]) => (
-                            <div key={key} className="mb-2">
-                                <label className="form-label">{key.replace(/([A-Z])/g, " $1")}:</label>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    value={value}
-                                    onChange={(e) => handleInputChange(e, "assets", key)}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                    <div className="card p-3">
-                        <h5>Liabilities</h5>
-                        {Object.entries(liabilities).map(([key, value]) => (
-                            <div key={key} className="mb-2">
-                                <label className="form-label">{key.replace(/([A-Z])/g, " $1")}:</label>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    value={value}
-                                    onChange={(e) => handleInputChange(e, "liabilities", key)}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="col-md-6">
-                    <div className="card p-3 h-100 d-flex flex-column align-items-center">
-                        <h5 className="mb-3">Net Worth Breakdown</h5>
-                        <Chart
-                            chartType="PieChart"
-                            width="100%"
-                            height="300px"
-                            data={data}
-                            options={{
-                                title: "Assets vs Liabilities",
-                                pieHole: 0.4,
-                                slices: {
-                                    0: { color: "#28a745" },
-                                    1: { color: "#dc3545" },
-                                },
-                            }}
-                        />
-                        <hr className="w-100" />
-                        <div className="card p-4 shadow-lg border-0 rounded-4 text-center bg-light">
-                            <h4 className="mb-3 text-primary fw-bold">📊 Your Net Worth Summary</h4>
-                            <div className="p-3 bg-white rounded-3 shadow-sm">
-                                <h6 className="text-success mb-1">💰 Total Assets</h6>
-                                <p className="fs-5 fw-bold text-dark">Rs. {totalAssets.toLocaleString()}</p>
-                            </div>
-                            <div className="p-3 bg-white rounded-3 shadow-sm mt-3">
-                                <h6 className="text-danger mb-1">📉 Total Liabilities</h6>
-                                <p className="fs-5 fw-bold text-dark">Rs. {totalLiabilities.toLocaleString()}</p>
-                            </div>
-                            <div className="p-3 bg-white rounded-3 shadow-sm mt-3">
-                                <h6 className="text-primary mb-1">🏆 Net Worth</h6>
-                                <p className="fs-5 fw-bold text-dark">Rs. {netWorth.toLocaleString()}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+  // Results
+  const results = [
+    { title: "Total Assets", value: `Rs. ${totalAssets.toLocaleString()}` },
+    { title: "Total Liabilities", value: `Rs. ${totalLiabilities.toLocaleString()}` },
+    { title: "Net Worth", value: `Rs. ${netWorth.toLocaleString()}` },
+  ];
+
+  return (
+    <CalculatorLayout
+      title="Net Worth Calculator"
+      description="Calculate your net worth by adjusting assets and liabilities."
+      inputControls={inputControls}
+      charts={charts}
+      results={results}
+    />
+  );
 };
 
 export default NetWorthCalculator;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Chart } from "react-google-charts";
-import "bootstrap/dist/css/bootstrap.min.css";
+import CalculatorLayout from "../../Constants/CalculatorLayout";
 
 const GoalSettingCalculator = () => {
   const [dreamAmount, setDreamAmount] = useState(10000000);
@@ -12,7 +12,8 @@ const GoalSettingCalculator = () => {
   const calculateGoal = () => {
     const adjustedDreamAmount =
       dreamAmount * Math.pow(1 + inflationRate / 100, years);
-    const futureSavings = currentSavings * Math.pow(1 + returnRate / 100, years);
+    const futureSavings =
+      currentSavings * Math.pow(1 + returnRate / 100, years);
     const finalTargetAmount = adjustedDreamAmount - futureSavings;
     const monthlyInvestment =
       (finalTargetAmount * (returnRate / 100 / 12)) /
@@ -32,120 +33,108 @@ const GoalSettingCalculator = () => {
 
   const results = calculateGoal();
 
-  const data = [
+  const chartData = [
     ["Category", "Amount"],
     ["Total Investment", parseFloat(results.totalInvestment)],
     ["Total Growth", parseFloat(results.totalGrowth)],
   ];
 
+  // ✅ Inputs config
+  const inputControls = [
+    {
+      label: `Dream Amount (Rs): ${dreamAmount}`,
+      value: dreamAmount,
+      setValue: setDreamAmount,
+      type: "number",
+      range: true,
+      min: 10000000,
+      max: 1000000000,
+      step: 1000000,
+    },
+    {
+      label: `Years to Achieve Goal: ${years}`,
+      value: years,
+      setValue: setYears,
+      type: "number",
+      range: true,
+      min: 1,
+      max: 100,
+    },
+    {
+      label: `Inflation Rate (% p.a.): ${inflationRate}`,
+      value: inflationRate,
+      setValue: setInflationRate,
+      type: "number",
+      range: true,
+      min: 5,
+      max: 15,
+      step: 0.5,
+    },
+    {
+      label: `Expected Return Rate (% p.a.): ${returnRate}`,
+      value: returnRate,
+      setValue: setReturnRate,
+      type: "number",
+      range: true,
+      min: 5,
+      max: 20,
+      step: 0.5,
+    },
+    {
+      label: `Current Savings (Rs): ${currentSavings}`,
+      value: currentSavings,
+      setValue: setCurrentSavings,
+      type: "number",
+      range: true,
+      min: 0,
+      max: 100000000,
+      step: 500000,
+    },
+  ];
+
+  // ✅ Charts config
+  const charts = [
+    {
+      title: "Investment Growth Breakdown",
+      component: (
+        <Chart
+          chartType="PieChart"
+          width="100%"
+          height="400px"
+          data={chartData}
+          options={{
+            title: "Investment vs Growth",
+            pieHole: 0.3,
+            slices: {
+              0: { color: "#1363a2" }, // Investmentcolor
+              1: { color: "#57C675" }, // Growth
+            },
+            fontSize: 14,
+            legend: { position: "bottom" },
+          }}
+        />
+      ),
+    },
+  ];
+
+  // ✅ Results config
+  const resultsArray = [
+    { title: "Targeted Dream Amount (Inflation Adjusted)", value: `Rs. ${results.adjustedDreamAmount}` },
+    { title: "Growth of Current Savings", value: `Rs. ${results.futureSavings}` },
+    { title: "Final Targeted Amount", value: `Rs. ${results.finalTargetAmount}` },
+    { title: "Monthly Savings Required", value: `Rs. ${results.monthlyInvestment}` },
+    { title: `Total Amount Invested in ${years} years`, value: `Rs. ${results.totalInvestment}` },
+    { title: "Total Growth Amount", value: `Rs. ${results.totalGrowth}` },
+  ];
+
   return (
-    <div className="container mt-5 p-4 bg-white rounded shadow-lg">
-      <h2 className="text-center text-warning mb-4">🎯 Goal Setting Calculator</h2>
-
-      {/* Input Fields */}
-      <div className="row">
-        <div className="col-md-6">
-          <div className="mb-3">
-            <label className="form-label">Dream Amount (Rs): {dreamAmount}</label>
-            <input
-              type="range"
-              min="10000000"
-              max="1000000000"
-              step="1000000"
-              value={dreamAmount}
-              onChange={(e) => setDreamAmount(Number(e.target.value))}
-              className="form-range"
-            />
-          </div>
-
-          <div className="mb-3">
-            <label className="form-label">Years to Achieve Goal: {years}</label>
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value={years}
-              onChange={(e) => setYears(Number(e.target.value))}
-              className="form-range"
-            />
-          </div>
-
-          <div className="mb-3">
-            <label className="form-label">Inflation Rate (% p.a.): {inflationRate}</label>
-            <input
-              type="range"
-              min="5"
-              max="15"
-              step="0.5"
-              value={inflationRate}
-              onChange={(e) => setInflationRate(Number(e.target.value))}
-              className="form-range"
-            />
-          </div>
-
-          <div className="mb-3">
-            <label className="form-label">Expected Return Rate (% p.a.): {returnRate}</label>
-            <input
-              type="range"
-              min="5"
-              max="20"
-              step="0.5"
-              value={returnRate}
-              onChange={(e) => setReturnRate(Number(e.target.value))}
-              className="form-range"
-            />
-          </div>
-
-          <div className="mb-3">
-            <label className="form-label">Current Savings (Rs): {currentSavings}</label>
-            <input
-              type="range"
-              min="0"
-              max="100000000"
-              step="500000"
-              value={currentSavings}
-              onChange={(e) => setCurrentSavings(Number(e.target.value))}
-              className="form-range"
-            />
-          </div>
-        </div>
-
-        {/* Results and Pie Chart */}
-        <div className="col-md-6">
-          <div className="card p-3 bg-light shadow-sm">
-            <h4 className="text-center">📊 Results</h4>
-            <p><strong>Targeted Dream Amount (Inflation Adjusted):</strong> Rs. {results.adjustedDreamAmount}</p>
-            <p><strong>Growth of Current Savings:</strong> Rs. {results.futureSavings}</p>
-            <p><strong>Final Targeted Amount:</strong> Rs. {results.finalTargetAmount}</p>
-            <p><strong>Monthly Savings Required:</strong> Rs. {results.monthlyInvestment}</p>
-            <p><strong>Total Amount Invested in {years} years:</strong> Rs. {results.totalInvestment}</p>
-            <p><strong>Total Growth Amount:</strong> Rs. {results.totalGrowth}</p>
-          </div>
-
-          {/* Pie Chart Section */}
-          <div className="card p-3 mt-4 shadow-sm">
-            <h4 className="text-center">📈 Investment Growth Breakdown</h4>
-            <Chart
-              chartType="PieChart"
-              width="100%"
-              height="400px"
-              data={data}
-              options={{
-                title: "Investment vs. Growth",
-                pieHole: 0.3,
-                is3D: true,
-                slices: {
-                  0: { color: "#007bff" }, // Blue for investment
-                  1: { color: "#28a745" }, // Green for growth
-                },
-                fontSize: 14,
-                legend: { position: "bottom" },
-              }}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <CalculatorLayout
+      title="Goal Setting Calculator"
+      description="Plan your investments smartly to achieve your dream goals considering inflation, returns, and savings."
+      inputControls={inputControls}
+      charts={charts}
+      results={resultsArray}
+    />
   );
 };
 

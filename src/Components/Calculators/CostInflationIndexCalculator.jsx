@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import CalculatorLayout from "../../Constants/CalculatorLayout";
 
 // Cost Inflation Index values
 const CII_VALUES = {
@@ -44,54 +44,53 @@ const CostInflationIndexCalculator = () => {
 
   const results = calculateCapitalGain();
 
+  // Input Controls for CalculatorLayout
+  const inputControls = [
+    { 
+      label: "Purchase Year", 
+      value: purchaseYear, 
+      setValue: setPurchaseYear, 
+      options: yearOptions 
+    },
+    { 
+      label: "Purchase Value (Rs.)", 
+      value: purchaseValue, 
+      setValue: setPurchaseValue, 
+      min: 1000, 
+      max: 10000000, 
+      step: 1000 
+    },
+    { 
+      label: "Sales Year", 
+      value: salesYear, 
+      setValue: setSalesYear, 
+      options: yearOptions 
+    },
+    { 
+      label: "Sales Value (Rs.)", 
+      value: salesValue, 
+      setValue: setSalesValue, 
+      min: 1000, 
+      max: 10000000, 
+      step: 1000 
+    },
+  ];
+
+  // Result Items for CalculatorLayout
+  const resultItems = [
+    { title: "📊 Indexed Purchase Cost", value: results.indexedCost },
+    { title: "💰 Capital Gain", value: results.capitalGain },
+    { title: "💸 Capital Gain Tax %", value: "20%" },
+    { title: "🧾 Capital Gain Tax", value: results.capitalGainTax },
+  ];
+
   return (
-    <div className="container mt-5 p-4 bg-white rounded shadow-lg">
-      <h2 className="text-center text-warning mb-4">📈 Cost Inflation Index Calculator</h2>
-
-      {/* Input Form */}
-      <div className="row">
-        <div className="col-md-6">
-          <div className="card p-4">
-            <h5>Enter Details</h5>
-
-            {/* Purchase Year */}
-            <label className="form-label">Purchase Year</label>
-            <select className="form-select mb-3" value={purchaseYear} onChange={(e) => setPurchaseYear(Number(e.target.value))}>
-              {yearOptions.map((year) => (
-                <option key={year.value} value={year.value}>{year.label}</option>
-              ))}
-            </select>
-
-            {/* Purchase Value */}
-            <label className="form-label">Purchase Value (Rs.)</label>
-            <input type="number" className="form-control mb-3" value={purchaseValue} onChange={(e) => setPurchaseValue(Number(e.target.value))} />
-
-            {/* Sales Year */}
-            <label className="form-label">Sales Year</label>
-            <select className="form-select mb-3" value={salesYear} onChange={(e) => setSalesYear(Number(e.target.value))}>
-              {yearOptions.map((year) => (
-                <option key={year.value} value={year.value}>{year.label}</option>
-              ))}
-            </select>
-
-            {/* Sales Value */}
-            <label className="form-label">Sales Value (Rs.)</label>
-            <input type="number" className="form-control mb-3" value={salesValue} onChange={(e) => setSalesValue(Number(e.target.value))} />
-          </div>
-        </div>
-
-        {/* Result Display */}
-        <div className="col-md-6">
-          <div className="card p-4">
-            <h5>Results</h5>
-            <p>📊 <strong>Indexed Purchase Cost:</strong> Rs. {results.indexedCost}</p>
-            <p>💰 <strong>Capital Gain:</strong> Rs. {results.capitalGain}</p>
-            <p>💸 <strong>Capital Gain Tax %:</strong> 20%</p>
-            <p>🧾 <strong>Capital Gain Tax:</strong> Rs. {results.capitalGainTax}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CalculatorLayout
+      title="Cost Inflation Index Calculator"
+      description="Calculate Indexed Purchase Cost, Capital Gain and Tax using Cost Inflation Index (CII) values."
+      inputControls={inputControls}
+      results={resultItems}
+    />
   );
 };
 

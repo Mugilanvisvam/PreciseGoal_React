@@ -1,0 +1,36 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.custom-input {
+  border-radius: 8px;
+  border: 1px solid #d1d1d6;
+  padding: 10px;
+}
+
+.custom-range {
+  accent-color: #007AFF;
+}
+
+.result-card.investment {
+  background-color: #e6f0ff;
+  color: #007AFF;
+  border-radius: 12px;
+}
+
+.result-card.growth {
+  background-color: #e6ffe6;
+  color: #28a745;
+  border-radius: 12px;
+}
+
+.result-card.future {
+  background-color: #ffe6e6;
+  color: #FF3B30;
+  border-radius: 12px;
+}
+
+.result-card h4 {
+  font-weight: 600;
+  margin-top: 10px;
+}

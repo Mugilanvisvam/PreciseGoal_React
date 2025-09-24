@@ -72,7 +72,7 @@ const HomeLoanCalculator = () => {
     return (
         <div className="container mt-4">
             <div className="card p-4">
-                <h4 className="mb-3 text-warning text-center">Home Loan Calculator</h4>
+                <h4 className="mb-3  text-center" style={{color:'#1363a2'}}>Home Loan Calculator</h4>
                 <div className="row">
                     {/* Input Controls */}
                     <div className="col-md-6">
@@ -93,7 +93,9 @@ const HomeLoanCalculator = () => {
                     {/* Pie Chart */}
                     <div className="col-md-6 d-flex justify-content-center">
                         <Chart chartType="PieChart" data={pieData} width="100%" height="400px"
-                            options={{ pieHole: 0.4, fontSize: 14, legend: { position: "bottom" } }} />
+                            options={{ pieHole: 0.4, fontSize: 14, legend: { position: "bottom" },
+            colors: ["#1363a2", "#57C675"],
+                             }} />
                     </div>
                 </div>
 
@@ -113,12 +115,12 @@ const HomeLoanCalculator = () => {
                 <div className="row mt-4">
                     <div className="col-md-12">
                         <Chart chartType="LineChart" data={emiGrowthData} width="100%" height="400px"
-                            options={{ title: "EMI Growth Over Time", curveType: "function", legend: { position: "bottom" } }} />
+                            options={{ title: "EMI Growth Over Time", curveType: "function", legend: { position: "bottom" }, }} />
                     </div>
                 </div>
 
                 {/* Loan Repayment Schedule Table */}
-                <h4 className="mt-4 text-warning">Loan Repayment Schedule</h4>
+                <h4 className="mt-4" style={{color:'#1363a2'}}>Loan Repayment Schedule</h4>
                 <div className="table-responsive">
                     <table className="table table-bordered text-center">
                         <thead className="table-dark">
@@ -146,7 +148,7 @@ const HomeLoanCalculator = () => {
 
                 {/* EMI Explanation Section */}
                 <div className="mt-4 p-3 border rounded bg-light">
-                    <h5 className="text-primary">What is EMI?</h5>
+                    <h5 className="text" style={{color:'#1363a2'}}>What is EMI?</h5>
                     <p>
                         Equated Monthly Installment – <b>EMI</b> for short – is the amount payable every month to the bank
                         or any other financial institution until the loan amount is fully paid off.
@@ -163,7 +165,7 @@ const HomeLoanCalculator = () => {
                     </p>
 
                     {/* EMI Formula */}
-                    <h5 className="text-primary mt-3">EMI Formula</h5>
+                    <h5 className=" mt-3" style={{color:'#1363a2'}}>EMI Formula</h5>
                     <p>
                         <b>EMI = P × r × (1 + r)<sup>n</sup> / ((1 + r)<sup>n</sup> – 1)</b>
                     </p>
@@ -178,7 +180,7 @@ const HomeLoanCalculator = () => {
                     </p>
 
                     {/* Example Calculation */}
-                    <h5 className="text-primary mt-3">Example Calculation</h5>
+                    <h5 className=" mt-3" style={{color:'#1363a2'}}>Example Calculation</h5>
                     <p>
                         If you borrow ₹10,00,000 from the bank at 10.5% annual interest for a period of 10 years (120 months),
                         then the EMI will be calculated as:
@@ -191,7 +193,7 @@ const HomeLoanCalculator = () => {
                     </p>
 
                     {/* EMI Calculator Explanation */}
-                    <h5 className="text-primary mt-3">How to Use the EMI Calculator?</h5>
+                    <h5 className=" mt-3" style={{color:'#1363a2'}}>How to Use the EMI Calculator?</h5>
                     <p>
                         Our EMI calculator is easy to use and provides instant results. You can calculate EMI for home loans,
                         car loans, personal loans, education loans, or any other amortizing loan.
@@ -211,7 +213,7 @@ const HomeLoanCalculator = () => {
                     </p>
 
                     {/* Floating Rate EMI Calculation */}
-                    <h5 className="text-primary mt-3">Floating Rate EMI Calculation</h5>
+                    <h5 className=" mt-3" style={{color:'#1363a2'}}>Floating Rate EMI Calculation</h5>
                     <p>
                         It’s advisable to calculate floating-rate EMIs under two scenarios:
                     </p>
