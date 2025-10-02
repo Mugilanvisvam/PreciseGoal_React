@@ -17,7 +17,6 @@
     "@mui/icons-material": "^6.4.5",
     "@mui/material": "^6.4.5",
     "bootstrap": "^5.3.3",
-    "framer-motion": "^10.18.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
