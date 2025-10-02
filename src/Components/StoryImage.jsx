@@ -1,8 +1,8 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Slide1 from "../assets/imageW1.png";
-import Slide2 from "../assets/imageW2.png";
+import Slide1 from "../assets/imagew1.png";
+import Slide2 from "../assets/imagew2.png";
 import "../Components/styles.css"; 
 
 const StoryImage = () => {
