@@ -69,9 +69,9 @@ const LumpsumCalculator = () => {
 
   // Results (for CalculatorLayout)
   const results = [
-    { title: "Your Lumpsum Amount", value: `Rs. ${lumpsumAmount.toLocaleString()}` },
+    { title: "Your Lumpsum Amount", value: '₹' + Math.round(lumpsumAmount).toLocaleString() },
     { title: "Investment Period", value: `${investmentPeriod} Years` },
-    { title: "Future Value", value: `Rs. ${futureValue.toLocaleString()}` },
+    { title: "Future Value", value: '₹' + Math.round(futureValue).toLocaleString() },
   ];
 
   return (

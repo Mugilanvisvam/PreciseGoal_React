@@ -50,10 +50,10 @@ const TargetAmountSIPCalculator = () => {
   ];
 
   const results = [
-    { title: "Targeted Amount (Inflation Adjusted)", value: `Rs. ${inflationAdjustedAmount.toLocaleString()}`, color: "#28a745" },
-    { title: "Monthly SIP Required", value: `Rs. ${monthlySIP.toFixed(2)}` },
-    { title: "Total Amount Invested", value: `Rs. ${totalInvestment.toLocaleString()}` },
-    { title: "Total Growth Amount", value: `Rs. ${totalGrowth.toLocaleString()}` },
+    { title: "Targeted Amount (Inflation Adjusted)", value: '₹' + Math.round(inflationAdjustedAmount).toLocaleString(), color: "#28a745" },
+    { title: "Monthly SIP Required", value: '₹' + Math.round(monthlySIP).toFixed(2) },
+    { title: "Total Amount Invested", value: '₹' + Math.round(totalInvestment).toLocaleString()},
+    { title: "Total Growth Amount", value: '₹' + Math.round(totalGrowth).toLocaleString()},
     { title: "Years to Save", value: `${investmentPeriod} years` },
   ];
 

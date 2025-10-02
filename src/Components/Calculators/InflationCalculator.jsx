@@ -67,10 +67,10 @@ const InflationCalculator = () => {
 
   // Results (for CalculatorLayout)
   const results = [
-    { title: "Current Cost", value: `Rs. ${currentCost.toLocaleString()}` },
-    { title: "Inflation Rate", value: `${inflationRate} %` },
+    { title: "Current Cost", value: '₹' + Math.round(currentCost).toLocaleString() },
+    { title: "Inflation Rate", value: '₹' + Math.round(inflationRate)   + " %" },
     { title: "Number of Years", value: `${years} Years` },
-    { title: "Future Cost", value: `Rs. ${futureCost.toLocaleString()}` },
+    { title: "Future Cost", value: '₹' + Math.round(futureCost).toLocaleString() },
   ];
 
   return (

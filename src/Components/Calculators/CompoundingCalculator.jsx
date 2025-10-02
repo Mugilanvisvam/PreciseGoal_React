@@ -63,11 +63,11 @@ const CompoundingCalculator = () => {
 
   // Results
   const resultItems = [
-    { title: "💰 Principal Amount", value: principal },
-    { title: "📈 Interest Rate (% per annum)", value: interestRate },
-    { title: "⏳ Period (Years)", value: years },
-    { title: "🏆 Total Maturity Amount", value: results.maturityAmount },
-    { title: "💵 Interest Earned", value: results.interestEarned }
+    { title: "💰 Principal Amount", value: '₹' + Math.round(principal) },
+    { title: "📈 Interest Rate (% per annum)", value: '₹' + Math.round(interestRate) },
+    { title: "⏳ Period (Years)", value: '₹' + Math.round(years) },
+    { title: "🏆 Total Maturity Amount", value: '₹' + Math.round(results.maturityAmount) },
+    { title: "💵 Interest Earned", value: '₹' + Math.round(results.interestEarned) }
   ];
 
   return (

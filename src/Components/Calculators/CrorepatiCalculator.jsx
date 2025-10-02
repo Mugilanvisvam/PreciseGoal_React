@@ -57,13 +57,13 @@ const CrorepatiCalculator = () => {
 
   // Results
   const resultItems = [
-    { title: "Targeted Wealth Amount (Inflation Adjusted)", value: finalAmount },
-    { title: "Growth of Your Savings Amount", value: growthSavings },
-    { title: "Final Targeted Amount (Minus Savings Growth)", value: finalAmount - growthSavings },
-    { title: "Number of Years You Need to Save", value: yearsToSave },
-    { title: "Monthly SIP Investment Required", value: sipInvestment },
-    { title: "Total SIP Investment", value: totalSipInvestment },
-    { title: "Total Growth Amount", value: totalGrowth },
+    { title: "Targeted Wealth Amount (Inflation Adjusted)", value: '₹' + Math.round(finalAmount) },
+    { title: "Growth of Your Savings Amount", value: '₹' + Math.round(growthSavings) },
+    { title: "Final Targeted Amount (Minus Savings Growth)", value: '₹' + Math.round(finalAmount - growthSavings) },
+    { title: "Number of Years You Need to Save", value: '₹' + Math.round(yearsToSave) },
+    { title: "Monthly SIP Investment Required", value: '₹' + Math.round(sipInvestment) },
+    { title: "Total SIP Investment", value: '₹' + Math.round(totalSipInvestment) },
+    { title: "Total Growth Amount", value: '₹' + Math.round(totalGrowth) },
   ];
 
   return (

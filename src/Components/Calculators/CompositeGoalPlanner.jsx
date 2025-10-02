@@ -85,13 +85,13 @@ const CompositeGoalPlanner = () => {
 
   // Results
   const resultItems = [
-    { title: "🎓 Education (Inflation Adjusted)", value: results.futureEducationCost },
-    { title: "💰 Wealth (Inflation Adjusted)", value: results.futureWealthCost },
-    { title: "🌍 Expenses (Inflation Adjusted)", value: results.futureDreamExpense },
-    { title: "Total Future Amount", value: results.totalFutureAmount },
-    { title: "Expected Growth of Current Savings", value: results.savingsGrowth },
-    { title: "Final Target Amount Needed", value: results.finalAmountNeeded },
-    { title: "Monthly Savings Required", value: results.monthlyInvestment },
+    { title: "🎓 Education (Inflation Adjusted)", value: '₹' + Math.round(results.futureEducationCost) },
+    { title: "💰 Wealth (Inflation Adjusted)", value: '₹' + Math.round(results.futureWealthCost) },
+    { title: "🌍 Expenses (Inflation Adjusted)", value: '₹' + Math.round(results.futureDreamExpense) },
+    { title: "Total Future Amount", value: '₹' + Math.round(results.totalFutureAmount) },
+    { title: "Expected Growth of Current Savings", value: '₹' + Math.round(results.savingsGrowth) },
+    { title: "Final Target Amount Needed", value: '₹' + Math.round(results.finalAmountNeeded) },
+    { title: "Monthly Savings Required", value: '₹' + Math.round(results.monthlyInvestment) },
   ];
 
   return (

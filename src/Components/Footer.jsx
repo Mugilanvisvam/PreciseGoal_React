@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../Components/styles.css';
 import Appstore from '../assets/pngegg.png';
-import Logo from '../assets/taglogo.png';
+import Logo from '../assets/pglogo.png';
 import {Link}  from "react-router-dom";
 
 // Social Media Icons
@@ -19,11 +19,11 @@ const Footer = () => {
           {/* Left: Logo & Social Links */}
           <div className="col-12 col-md-3 mb-4 d-flex flex-column align-items-center align-items-md-start">
             <div className="d-flex align-items-center mb-2">
-              <img src={Logo} alt="Logo" className="img-fluid" width="80" />
-              <div className="d-flex flex-column" style={{ lineHeight: "1", marginLeft: "8px" }}>
-                <span className="fw-bold" style={{ color: "#1E2050", fontSize: "x-large" }}>PG ASSET</span>
+              <img src={Logo} alt="Logo" className="img-fluid" width="180" />
+              {/* <div className="d-flex flex-column" style={{ lineHeight: "1", marginLeft: "8px" }}>
+                <span className="fw-bold" style={{ color: "#1E2050", fontSize: "xx-large" }}>PG ASSET</span>
                 <span style={{ color: "#3A858B", fontSize: "xx-small" }}>Invest Precisely. Retire Wisely.</span>
-              </div>
+              </div> */}
             </div>
             <p>Connect with us:</p>
             <div className="d-flex justify-content-center justify-content-md-start gap-3">

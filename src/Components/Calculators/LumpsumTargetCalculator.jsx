@@ -69,9 +69,9 @@ const LumpsumTargetCalculator = () => {
 
   // Results
   const results = [
-    { title: "Targeted Amount", value: `Rs. ${targetAmount.toLocaleString()}` },
+    { title: "Targeted Amount", value: '₹' + Math.round(targetAmount).toLocaleString() },
     { title: "Investment Period", value: `${years} Years` },
-    { title: "Required Lumpsum Investment", value: `Rs. ${lumpsumInvestment.toFixed(2)}` },
+    { title: "Required Lumpsum Investment", value: '₹' + Math.round(lumpsumInvestment)},
   ];
 
   return (

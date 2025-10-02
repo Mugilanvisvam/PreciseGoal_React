@@ -85,9 +85,9 @@ const CarLoanCalculator = () => {
 
   // Results
   const results = [
-    { title: "Monthly EMI", value: EMI },
-    { title: "Total Interest Payable", value: totalInterest },
-    { title: "Total Payment", value: totalPayment },
+    { title: "Monthly EMI", value: '₹' + Math.round(EMI) },
+    { title: "Total Interest Payable", value: '₹' + Math.round(totalInterest) },
+    { title: "Total Payment", value: '₹' + Math.round(totalPayment) },
   ];
 
   return (

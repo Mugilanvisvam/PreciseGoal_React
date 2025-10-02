@@ -110,19 +110,19 @@ const HumanLifeValueCalculator = () => {
           <div className="card p-3">
             <h5 className="card-title" style={{color:'#1363a2'}}>Results</h5>
             <h6>Your Current Annual Income</h6>
-            <p className="fs-5 " style={{color:'#1363a2'}}>Rs. {annualIncome.toLocaleString()}</p>
+            <p className="fs-5 " style={{color:'#1363a2'}}> {'₹' + Math.round(annualIncome).toLocaleString()}</p>
             
             <h6>Expected Increase in Income (% per annum)</h6>
-            <p className="fs-5 " style={{color:'#1363a2'}}>{incomeIncreaseRate} %</p>
+            <p className="fs-5 " style={{color:'#1363a2'}}>{'₹' + Math.round(incomeIncreaseRate)} %</p>
             
             <h6>Outstanding Loan Amount</h6>
-            <p className="fs-5 " style={{color:'#1363a2'}}>Rs. {loanAmount.toLocaleString()}</p>
+            <p className="fs-5 " style={{color:'#1363a2'}}>{'₹' + Math.round(loanAmount).toLocaleString()}</p>
             
             <h6>Cumulative Income Over Next {years} Years</h6>
-            <p className="fs-5 " style={{color:'#1363a2'}}>Rs. {cumulativeIncome.toLocaleString()}</p>
+            <p className="fs-5 " style={{color:'#1363a2'}}>{'₹' + Math.round(cumulativeIncome).toLocaleString()}</p>
             
             <h6>Your Ideal Life Cover</h6>
-            <p className="fs-3 " style={{color:'#57C675'}}>Rs. {lifeCover.toLocaleString()}</p>
+            <p className="fs-3 " style={{color:'#57C675'}}>{'₹' + Math.round(lifeCover).toLocaleString()}</p>
           </div>
         </div>
       </div>

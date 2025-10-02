@@ -56,7 +56,7 @@ const MutualFundsBootstrap = () => {
               src={content[selectedIndex].image}
               alt={content[selectedIndex].title}
               className="img-fluid rounded"
-              style={{ maxHeight: "400px", objectFit: "cover", width: "100%" }}
+              style={{ objectFit: "cover", width: "100%" }}
             />
           </div>
         </div>

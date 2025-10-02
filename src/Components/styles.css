@@ -158,7 +158,7 @@ footer a:hover {
 .carousel-image {
   width: 100%;
   height: 500px; /* Default height for larger screens */
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: 20px; /* Optional: adds rounded corners */
 }
 

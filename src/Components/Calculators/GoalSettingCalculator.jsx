@@ -119,12 +119,12 @@ const GoalSettingCalculator = () => {
 
   // ✅ Results config
   const resultsArray = [
-    { title: "Targeted Dream Amount (Inflation Adjusted)", value: `Rs. ${results.adjustedDreamAmount}` },
-    { title: "Growth of Current Savings", value: `Rs. ${results.futureSavings}` },
-    { title: "Final Targeted Amount", value: `Rs. ${results.finalTargetAmount}` },
-    { title: "Monthly Savings Required", value: `Rs. ${results.monthlyInvestment}` },
-    { title: `Total Amount Invested in ${years} years`, value: `Rs. ${results.totalInvestment}` },
-    { title: "Total Growth Amount", value: `Rs. ${results.totalGrowth}` },
+    { title: "Targeted Dream Amount (Inflation Adjusted)", value: '₹' + Math.round(results.adjustedDreamAmount) },
+    { title: "Growth of Current Savings", value: '₹' + Math.round(results.futureSavings) },
+    { title: "Final Targeted Amount", value: '₹' + Math.round(results.finalTargetAmount) },
+    { title: "Monthly Savings Required", value: '₹' + Math.round(results.monthlyInvestment)},
+    { title: `Total Amount Invested in ${years} years`, value: '₹' + Math.round(results.totalInvestment) },
+    { title: "Total Growth Amount", value: '₹' + Math.round(results.totalGrowth)},
   ];
 
   return (

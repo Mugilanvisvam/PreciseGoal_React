@@ -113,15 +113,15 @@ const RetirementPlanningCalculator = () => {
   const resultsArray = [
     {
       title: "Retirement Amount (Inflation Adjusted)",
-      value: `Rs. ${inflationAdjustedRetirementAmount.toLocaleString()}`,
+      value: '₹' + Math.round(inflationAdjustedRetirementAmount).toLocaleString(),
     },
     {
       title: "Growth of Your Savings",
-      value: `Rs. ${savingsGrowth.toLocaleString()}`,
+      value: '₹' + Math.round(savingsGrowth).toLocaleString(),
     },
     {
       title: "Final Targeted Amount",
-      value: `Rs. ${finalTargetAmount.toLocaleString()}`,
+      value: '₹' + Math.round(finalTargetAmount).toLocaleString(),
     },
     {
       title: "Number of Years to Save",
@@ -129,15 +129,15 @@ const RetirementPlanningCalculator = () => {
     },
     {
       title: "Monthly Savings Required",
-      value: `Rs. ${monthlySavingsRequired.toLocaleString()}`,
+      value: '₹' + Math.round(monthlySavingsRequired).toLocaleString(),
     },
     {
       title: "Total Amount Invested",
-      value: `Rs. ${totalInvestedAmount.toLocaleString()}`,
+      value: '₹' + Math.round(totalInvestedAmount).toLocaleString(),
     },
     {
       title: "Total Growth Amount",
-      value: `Rs. ${totalGrowthAmount.toLocaleString()}`,
+      value: '₹' + Math.round(totalGrowthAmount).toLocaleString(),
     },
   ];
 

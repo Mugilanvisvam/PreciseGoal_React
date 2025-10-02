@@ -69,12 +69,12 @@ const SIPAnnualIncreaseCalculator = () => {
 
   // 📑 Results
   const resultsArray = [
-    { title: "Total SIP Invested (Without Increase)", value: `Rs. ${resultWithoutIncrease.totalInvestment.toFixed(2)}` },
-    { title: "Total Growth (Without Increase)", value: `Rs. ${resultWithoutIncrease.totalGrowth.toFixed(2)}` },
-    { title: "Future Value (Without Increase)", value: `Rs. ${resultWithoutIncrease.futureValue.toFixed(2)}` },
-    { title: "Total SIP Invested (With Increase)", value: `Rs. ${resultWithIncrease.totalInvestment.toFixed(2)}` },
-    { title: "Total Growth (With Increase)", value: `Rs. ${resultWithIncrease.totalGrowth.toFixed(2)}` },
-    { title: "Future Value (With Increase)", value: `Rs. ${resultWithIncrease.futureValue.toFixed(2)}` },
+    { title: "Total SIP Invested (Without Increase)", value: '₹' + Math.round(resultWithoutIncrease.totalInvestment)},
+    { title: "Total Growth (Without Increase)", value: '₹' + Math.round(resultWithoutIncrease.totalGrowth)},
+    { title: "Future Value (Without Increase)", value: '₹' + Math.round(resultWithoutIncrease.futureValue)},
+    { title: "Total SIP Invested (With Increase)", value: '₹' + Math.round(resultWithIncrease.totalInvestment)},
+    { title: "Total Growth (With Increase)", value: '₹' + Math.round(resultWithIncrease.totalGrowth)},
+    { title: "Future Value (With Increase)", value: '₹' + Math.round(resultWithIncrease.futureValue)},
   ];
 
   return (

@@ -58,11 +58,11 @@ const EducationPlanner = () => {
 
   // Results
   const resultItems = [
-    { title: `Amount at Today's Prices`, value: currentCost },
+    { title: `Amount at Today's Prices`, value: '₹' + Math.round(currentCost) },
     { title: `Education Starts In`, value: `${years} year(s)` },
-    { title: `Future Cost (Inflation Adjusted)`, value: futureCost },
-    { title: `Current Savings`, value: savings },
-    { title: `Monthly Savings Required`, value: requiredSavings },
+    { title: `Future Cost (Inflation Adjusted)`, value: '₹' + Math.round(futureCost) },
+    { title: `Current Savings`, value: '₹' + Math.round(savings) },
+    { title: `Monthly Savings Required`, value: '₹' + Math.round(requiredSavings) },
   ];
 
   return (

@@ -98,9 +98,9 @@ const SIPCalculator = () => {
 
   // 📑 Results
   const resultsArray = [
-    { title: "Total Investment", value: `Rs. ${totalInvested.toLocaleString()}` },
-    { title: "Total Growth", value: `Rs. ${totalGrowth.toLocaleString()}` },
-    { title: "Future Value", value: `Rs. ${FV.toLocaleString()}` },
+    { title: "Total Investment", value: '₹' + Math.round(totalInvested).toLocaleString()},
+    { title: "Total Growth", value: '₹' + Math.round(totalGrowth).toLocaleString()},
+    { title: "Future Value", value: '₹' + Math.round(FV).toLocaleString()},
   ];
 
   return (

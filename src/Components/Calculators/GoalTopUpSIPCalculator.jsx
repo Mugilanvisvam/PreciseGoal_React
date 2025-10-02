@@ -109,27 +109,27 @@ const GoalTopUpSIPCalculator = () => {
   const resultsArray = [
     {
       title: "Targeted Wealth Amount (Inflation adjusted)",
-      value: `Rs. ${finalAmount.toLocaleString()}`,
+      value: '₹' + Math.round(finalAmount).toLocaleString(),
     },
     {
       title: "Number of Years to Achieve Goal",
-      value: `${investmentYears} years`,
+      value: '₹' + Math.round(investmentYears) + "years",
     },
     {
       title: "Monthly SIP (First Year)",
-      value: `Rs. ${sipAmountFirstYear.toLocaleString()}`,
+      value: '₹' + Math.round(sipAmountFirstYear).toLocaleString(),
     },
     {
       title: "Total Amount Invested",
-      value: `Rs. ${totalSipInvestment.toLocaleString()}`,
+      value: '₹' + Math.round(totalSipInvestment).toLocaleString(),
     },
     {
       title: "Total Growth Amount",
-      value: `Rs. ${totalGrowth.toLocaleString()}`,
+      value: '₹' + Math.round(totalGrowth).toLocaleString(),
     },
     {
       title: "Final Amount",
-      value: `Rs. ${finalAmount.toLocaleString()}`,
+      value: '₹' + Math.round(finalAmount).toLocaleString(),
     },
   ];
 
