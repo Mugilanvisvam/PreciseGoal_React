@@ -6,13 +6,13 @@ import ArticleCard from '../Components/ArticleCard';
 import CarouselComponent from '../Components/Carousel';
 import ContactSection from '../Components/ContactSection';
 import FundAdvisorSection from '../Components/FundAdvisorSection';
-import StoryImage from '../Components/StoryImage';
+// import StoryImage from '../Components/StoryImage';
 function Home() {
   return (
     <div>
       <HeroSection />
       <Principles />
-      <StoryImage />
+      {/* <StoryImage /> */}
       <FundAdvisorSection />
       <HowItWorks />
       <ArticleCard />
