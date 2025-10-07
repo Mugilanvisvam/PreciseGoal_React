@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroSection from '../Components/HeroSection';
-import Principles from '../Components/Principles';
+// import Principles from '../Components/Principles';
 import HowItWorks from '../Components/HowItWorks';
 import ArticleCard from '../Components/ArticleCard';
 import CarouselComponent from '../Components/Carousel';
@@ -11,7 +11,7 @@ function Home() {
   return (
     <div>
       <HeroSection />
-      <Principles />
+      {/* <Principles /> */}
       {/* <StoryImage /> */}
       <FundAdvisorSection />
       <HowItWorks />
