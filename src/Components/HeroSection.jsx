@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../assets/Postlandingimage.png"; // your main hero image
+import logo from "../assets/herosectionimage.png"; // your main hero image
 import "../Components/styles.css";
 import { useNavigate } from "react-router-dom";
 

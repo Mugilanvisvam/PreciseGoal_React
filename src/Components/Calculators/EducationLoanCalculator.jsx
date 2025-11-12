@@ -99,7 +99,7 @@ const EducationLoanCalculator = () => {
 
                 {/* EMI and Loan Summary */}
                 <div className="row mt-4">
-                    {[{ label: "Monthly EMI", value: EMI }, { label: "Total Interest Payable", value: totalInterest }, { label: "Total Payment", value: totalPayment }].map(({ label, value }, i) => (
+                    {[{ label: "Monthly EMI", value: Math.round(EMI) }, { label: "Total Interest Payable", value: Math.round(totalInterest) }, { label: "Total Payment", value: Math.round(totalPayment) }].map(({ label, value }, i) => (
                         <div className="col-md-4" key={i}>
                             <div className={`alert ${i === 0 ? "alert-primary" : i === 1 ? "alert-danger" : "alert-success"} text-center`}>
                                 <h5>{label}</h5>

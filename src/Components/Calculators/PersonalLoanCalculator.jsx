@@ -119,9 +119,9 @@ const PersonalLoanCalculator = () => {
 
   // Results Summary
   const results = [
-    { title: "Monthly EMI", value: currencyFormat(EMI) },
-    { title: "Total Interest Payable", value: currencyFormat(totalInterest) },
-    { title: "Total Payment", value: currencyFormat(totalPayment) },
+    { title: "Monthly EMI", value: currencyFormat(Math.round(EMI)) },
+    { title: "Total Interest Payable", value: currencyFormat(Math.round(totalInterest)) },
+    { title: "Total Payment", value: currencyFormat(Math.round(totalPayment)) },
   ];
 
   return (
