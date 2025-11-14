@@ -25,9 +25,9 @@ const StepUpSIPCalculator = () => {
     if (i % 12 === 0) {
       sipTableData.push([
         i / 12,
-        currentInvestment.toFixed(2),
-        (currentInvestment * 12).toFixed(2),
-        totalInvestment.toFixed(2),
+        Math.round(currentInvestment).toLocaleString("en-IN"),
+        Math.round(currentInvestment * 12).toLocaleString("en-IN"),
+        Math.round(totalInvestment).toLocaleString("en-IN"),
       ]);
       currentInvestment *= 1 + stepUpPercentage / 100;
     }
@@ -90,8 +90,8 @@ const StepUpSIPCalculator = () => {
           height="300px"
           data={[
             ["Category", "Amount"],
-            ["Total Investment", totalInvestment],
-            ["Total Growth", totalGrowth],
+            ["Total Investment", Math.round(totalInvestment)],
+            ["Total Growth", Math.round(totalGrowth)],
           ]}
           options={{
             pieHole: 0.4,
@@ -121,9 +121,9 @@ const StepUpSIPCalculator = () => {
 
   // 📑 Results
   const resultsArray = [
-    { title: "Total SIP Amount Invested", value: `Rs. ${totalInvestment.toFixed(2)}` },
-    { title: "Total Growth", value: `Rs. ${totalGrowth.toFixed(2)}` },
-    { title: "Total Future Value", value: `Rs. ${futureValue.toFixed(2)}` },
+    { title: "Total SIP Amount Invested", value: `Rs. ${Math.round(totalInvestment).toLocaleString("en-IN")}` },
+    { title: "Total Growth", value: `Rs. ${Math.round(totalGrowth).toLocaleString("en-IN")}` },
+    { title: "Total Future Value", value: `Rs. ${Math.round(futureValue).toLocaleString("en-IN")}` },
   ];
 
   return (

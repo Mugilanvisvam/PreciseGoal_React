@@ -11,23 +11,75 @@ const CrorepatiCalculator = () => {
   const [savings, setSavings] = useState(500000);
 
   const yearsToSave = targetAge - currentAge;
-  const finalAmount = wealthAmount * Math.pow(1 + inflationRate / 100, yearsToSave);
-  const growthSavings = savings * Math.pow(1 + returnRate / 100, yearsToSave);
+  const finalAmount =
+    wealthAmount * Math.pow(1 + inflationRate / 100, yearsToSave);
+  const growthSavings =
+    savings * Math.pow(1 + returnRate / 100, yearsToSave);
   const sipInvestment =
     (finalAmount - growthSavings) /
-    ((Math.pow(1 + returnRate / 100, yearsToSave) - 1) / (returnRate / 100));
+    ((Math.pow(1 + returnRate / 100, yearsToSave) - 1) /
+      (returnRate / 100));
 
-  const totalSipInvestment = sipInvestment * 12 * yearsToSave; // Total SIP invested over years
-  const totalGrowth = finalAmount - totalSipInvestment; // Growth of the total invested amount
+  const totalSipInvestment = sipInvestment * 12 * yearsToSave; // Total SIP invested
+  const totalGrowth = finalAmount - totalSipInvestment; // Growth of invested amount
+
+  // Helper function to format numbers in Indian style (e.g., 1,00,000)
+  const formatINR = (num) => {
+    return new Intl.NumberFormat("en-IN", {
+      maximumFractionDigits: 0,
+    }).format(num);
+  };
 
   // Input controls
   const inputControls = [
-    { label: "Desired Wealth (Rs)", value: wealthAmount, setValue: setWealthAmount, min: 10000000, max: 1000000000, step: 1000000 },
-    { label: "Current Age", value: currentAge, setValue: setCurrentAge, min: 10, max: 100, step: 1 },
-    { label: "Target Age", value: targetAge, setValue: setTargetAge, min: 10, max: 100, step: 1 },
-    { label: "Inflation Rate (%)", value: inflationRate, setValue: setInflationRate, min: 0, max: 10, step: 0.1 },
-    { label: "Expected Return Rate (%)", value: returnRate, setValue: setReturnRate, min: 5, max: 20, step: 0.1 },
-    { label: "Current Savings (Rs)", value: savings, setValue: setSavings, min: 0, max: 10000000, step: 10000 },
+    {
+      label: "Desired Wealth (Rs)",
+      value: wealthAmount,
+      setValue: setWealthAmount,
+      min: 10000000,
+      max: 1000000000,
+      step: 1000000,
+    },
+    {
+      label: "Current Age",
+      value: currentAge,
+      setValue: setCurrentAge,
+      min: 10,
+      max: 100,
+      step: 1,
+    },
+    {
+      label: "Target Age",
+      value: targetAge,
+      setValue: setTargetAge,
+      min: 10,
+      max: 100,
+      step: 1,
+    },
+    {
+      label: "Inflation Rate (%)",
+      value: inflationRate,
+      setValue: setInflationRate,
+      min: 0,
+      max: 10,
+      step: 0.1,
+    },
+    {
+      label: "Expected Return Rate (%)",
+      value: returnRate,
+      setValue: setReturnRate,
+      min: 5,
+      max: 20,
+      step: 0.1,
+    },
+    {
+      label: "Current Savings (Rs)",
+      value: savings,
+      setValue: setSavings,
+      min: 0,
+      max: 10000000,
+      step: 10000,
+    },
   ];
 
   // Charts
@@ -48,7 +100,11 @@ const CrorepatiCalculator = () => {
             pieHole: 0.4,
             slices: { 0: { color: "#0f8b8b" }, 1: { color: "#57C675" } },
             chartArea: { width: "90%", height: "80%" },
-            legend: { position: "bottom", alignment: "center", textStyle: { fontSize: 12 } },
+            legend: {
+              position: "bottom",
+              alignment: "center",
+              textStyle: { fontSize: 12 },
+            },
           }}
         />
       ),
@@ -57,13 +113,34 @@ const CrorepatiCalculator = () => {
 
   // Results
   const resultItems = [
-    { title: "Targeted Wealth Amount (Inflation Adjusted)", value: '₹' + Math.round(finalAmount) },
-    { title: "Growth of Your Savings Amount", value: '₹' + Math.round(growthSavings) },
-    { title: "Final Targeted Amount (Minus Savings Growth)", value: '₹' + Math.round(finalAmount - growthSavings) },
-    { title: "Number of Years You Need to Save", value: '₹' + Math.round(yearsToSave) },
-    { title: "Monthly SIP Investment Required", value: '₹' + Math.round(sipInvestment) },
-    { title: "Total SIP Investment", value: '₹' + Math.round(totalSipInvestment) },
-    { title: "Total Growth Amount", value: '₹' + Math.round(totalGrowth) },
+    {
+      title: "Targeted Wealth Amount (Inflation Adjusted)",
+      value: "₹" + formatINR(finalAmount),
+    },
+    {
+      title: "Growth of Your Savings Amount",
+      value: "₹" + formatINR(growthSavings),
+    },
+    {
+      title: "Final Targeted Amount (Minus Savings Growth)",
+      value: "₹" + formatINR(finalAmount - growthSavings),
+    },
+    {
+      title: "Number of Years You Need to Save",
+      value: yearsToSave + " years",
+    },
+    {
+      title: "Monthly SIP Investment Required",
+      value: "₹" + formatINR(sipInvestment),
+    },
+    {
+      title: "Total SIP Investment",
+      value: "₹" + formatINR(totalSipInvestment),
+    },
+    {
+      title: "Total Growth Amount",
+      value: "₹" + formatINR(totalGrowth),
+    },
   ];
 
   return (

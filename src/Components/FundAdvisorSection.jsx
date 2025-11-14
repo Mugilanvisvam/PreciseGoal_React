@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const FundAdvisorSection = () => {
   return (
-    <Container className="text-center my-5">
+    <Container className="text-center">
       <h3 className="fw-bold" style={{color:'#57C675'}}>Why Choose PG Asset?</h3>
       <Row className="mt-4">
         {/* Card 1 */}

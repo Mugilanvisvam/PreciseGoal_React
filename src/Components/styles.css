@@ -40,7 +40,7 @@ p {
   /* background-repeat: no-repeat; */
   background-size: cover; /* fills the section */
   background-position: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   position: relative;
@@ -284,11 +284,11 @@ footer a:hover {
 }
 
 
+/* Animated Gradient Button */
 .animated-btn {
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
-  /* font-size: 18px; */
   font-weight: bold;
   color: white;
   cursor: pointer;
